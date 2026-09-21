@@ -1447,20 +1447,157 @@ img {
   to { transform: scale(1); opacity: 1; }
 }
 
-@keyframes pulse-ring {
-  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
-  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+/* ==========================================================================
+   Mobile Navigation Drawer & Mobile Demo Bottom Sheet
+   ========================================================================== */
+.mobile-drawer-backdrop,
+.mobile-demo-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 998;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
 }
 
+.mobile-drawer-backdrop.active,
+.mobile-demo-backdrop.active {
+  display: block;
+  opacity: 1;
+}
+
+.mobile-nav-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 86%;
+  max-width: 320px;
+  background: var(--bg-surface);
+  box-shadow: -10px 0 35px rgba(0, 0, 0, 0.25);
+  z-index: 999;
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 16px;
+  overflow-y: auto;
+}
+
+.mobile-nav-drawer.open {
+  transform: translateX(0);
+}
+
+.mobile-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 16px;
+}
+
+.mobile-drawer-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.mobile-drawer-link:hover,
+.mobile-drawer-link.active {
+  background: var(--color-primary-subtle);
+  color: var(--color-primary);
+}
+
+.mobile-demo-pill {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: 16px;
+  z-index: 85;
+  background: #0f172a;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  border-radius: var(--radius-full);
+  padding: 8px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.mobile-demo-sheet {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--bg-surface);
+  border-top-left-radius: var(--radius-xl);
+  border-top-right-radius: var(--radius-xl);
+  border-top: 1px solid var(--border-subtle);
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.35);
+  z-index: 999;
+  padding: 24px 20px calc(24px + env(safe-area-inset-bottom, 0px));
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.mobile-demo-sheet.open {
+  transform: translateY(0);
+}
+
+.mobile-header-actions {
+  display: none;
+  align-items: center;
+  gap: 8px;
+}
+
+.mobile-icon-btn,
+.mobile-hamburger-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  background: var(--bg-surface-subtle);
+  border: 1px solid var(--border-subtle);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.mobile-admin-header,
+.mobile-admin-tabs {
+  display: none;
+}
+
+/* ==========================================================================
+   Responsive Architecture & Mobile First Breakpoints
+   ========================================================================== */
 @media (max-width: 1024px) {
   .hero-grid,
   .course-hero-grid {
     grid-template-columns: 1fr;
+    gap: 32px;
   }
   .enrollment-floating-card {
     position: static;
-    margin-top: 32px;
+    margin-top: 24px;
+    width: 100%;
   }
   .trust-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -1470,6 +1607,7 @@ img {
   }
   .three-step-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
   .refund-horizontal-timeline {
     grid-template-columns: repeat(2, 1fr);
@@ -1477,34 +1615,353 @@ img {
 }
 
 @media (max-width: 768px) {
+  /* Hide Desktop Demo Bar on Mobile */
+  .demo-switcher-bar {
+    display: none !important;
+  }
+  
+  /* Show Mobile Demo Pill */
+  .mobile-demo-pill {
+    display: inline-flex !important;
+  }
+
+  /* Reset Main Header to top: 0 on mobile */
+  .main-header {
+    top: 0 !important;
+  }
+
+  /* Universal Viewport & Horizontal Overflow Protection */
+  html, body {
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+    position: relative !important;
+  }
+
+  /* Navigation on Mobile */
+  .nav-container {
+    padding: 10px 16px !important;
+    gap: 10px !important;
+  }
+  .logo-wrapper {
+    font-size: 18px !important;
+    gap: 6px !important;
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+  }
+  .logo-img {
+    height: 28px !important;
+  }
+  .nav-links,
+  .desktop-only {
+    display: none !important;
+  }
+  .mobile-header-actions {
+    display: flex !important;
+  }
+
+  /* Announcement Bar on Mobile */
+  .announcement-bar {
+    padding: 6px 12px !important;
+    font-size: 11px !important;
+    line-height: 1.4 !important;
+    gap: 6px !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+  .announcement-bar .badge {
+    font-size: 10px !important;
+    padding: 2px 6px !important;
+  }
+
+  /* Hero Section on Mobile */
+  .hero-section {
+    padding: 28px 16px 40px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
   .hero-content h1 {
-    font-size: 34px;
+    font-size: 30px !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.02em !important;
+    margin-bottom: 14px !important;
+    word-break: break-word !important;
   }
-  .section-title {
-    font-size: 28px;
+  .hero-content p {
+    font-size: 15px !important;
+    line-height: 1.55 !important;
+    margin-bottom: 24px !important;
   }
-  .nav-links, .nav-search {
-    display: none;
+  .hero-ctas {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 10px !important;
+  }
+  .hero-ctas .btn {
+    width: 100% !important;
+    height: 48px !important;
+    justify-content: center !important;
+  }
+  .refund-interactive-card {
+    padding: 20px 16px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    border-radius: var(--radius-lg) !important;
+  }
+
+  /* Trust Strip on Mobile (Modern 2x2 App Grid + 1 Full Width) */
+  .trust-strip {
+    padding: 16px 0 !important;
   }
   .trust-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+    padding: 0 16px !important;
   }
   .trust-item {
-    border-right: none;
-    border-bottom: 1px solid var(--border-subtle);
-    padding-bottom: 12px;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: var(--radius-md) !important;
+    background: var(--bg-surface-subtle) !important;
+    padding: 12px 8px !important;
+    text-align: center !important;
   }
   .trust-item:last-child {
-    border-bottom: none;
+    grid-column: span 2 !important;
+    border-right: 1px solid var(--border-subtle) !important;
   }
+  .trust-num {
+    font-size: 24px !important;
+  }
+
+  /* Section Containers */
+  .section-wrapper,
+  .section-wrapper-sm {
+    padding: 44px 16px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .section-header {
+    margin-bottom: 32px !important;
+  }
+  .section-title {
+    font-size: 26px !important;
+    line-height: 1.25 !important;
+  }
+  .section-desc {
+    font-size: 15px !important;
+  }
+
+  /* Category Chips (Smooth Horizontal Scroll with Momentum) */
+  .category-chips {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    white-space: nowrap !important;
+    display: flex !important;
+    gap: 8px !important;
+    padding: 4px 0 10px !important;
+    scrollbar-width: none !important;
+    width: 100% !important;
+  }
+  .category-chips::-webkit-scrollbar {
+    display: none !important;
+  }
+  .chip {
+    flex-shrink: 0 !important;
+    padding: 6px 14px !important;
+    font-size: 12px !important;
+  }
+
+  /* Course Grid & Cards */
   .course-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+    width: 100% !important;
+  }
+  .course-card {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .course-card-thumb {
+    height: 180px !important;
+  }
+  .course-card-body {
+    padding: 18px !important;
+  }
+  .course-card-title {
+    font-size: 17px !important;
+  }
+
+  /* Career Paths & 3-Step Cards */
+  .career-paths-grid,
+  .three-step-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    width: 100% !important;
+  }
+  .step-card {
+    padding: 24px 18px !important;
+  }
+
+  /* Mentorship Flow on Mobile */
+  #mentorshipFlowGrid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  /* Course Detail Page on Mobile */
+  .course-template-header {
+    padding: 24px 16px 36px !important;
+  }
+  .course-main-title {
+    font-size: 28px !important;
+    line-height: 1.22 !important;
+  }
+  .course-subtitle {
+    font-size: 16px !important;
+  }
+  .course-meta-strip {
+    gap: 12px !important;
+    font-size: 13px !important;
   }
   .progress-metrics-row {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
   }
   .refund-horizontal-timeline {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+  .view-mode-toggle-banner {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+    text-align: center !important;
+    padding: 14px 16px !important;
+  }
+  .segmented-toggle {
+    width: 100% !important;
+    display: flex !important;
+  }
+  .segmented-btn {
+    flex: 1 !important;
+    text-align: center !important;
+    padding: 8px 10px !important;
+    font-size: 12px !important;
+  }
+
+  /* Footer on Mobile */
+  footer > div {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+
+  /* Admin Console on Mobile */
+  .mobile-admin-header {
+    display: block !important;
+  }
+  .mobile-admin-tabs {
+    display: flex !important;
+    padding: 10px 14px !important;
+    background: #111726 !important;
+    border-bottom: 1px solid #24304d !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    white-space: nowrap !important;
+    gap: 8px !important;
+    scrollbar-width: none !important;
+  }
+  .mobile-admin-tabs::-webkit-scrollbar {
+    display: none !important;
+  }
+  .mobile-tab-btn {
+    flex-shrink: 0 !important;
+    font-size: 12px !important;
+    padding: 6px 14px !important;
+  }
+  .admin-main {
+    padding: 16px 12px !important;
+  }
+  .admin-table-container,
+  .admin-card {
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  /* Student Dashboard on Mobile */
+  .challenge-spotlight-card {
+    padding: 20px 16px !important;
+    border-radius: var(--radius-lg) !important;
+  }
+  .countdown-grid {
+    gap: 6px !important;
+    margin: 14px 0 !important;
+  }
+  .timer-box {
+    padding: 8px 4px !important;
+  }
+  .timer-val {
+    font-size: 20px !important;
+  }
+  .timer-lbl {
+    font-size: 9px !important;
+  }
+  .checklist-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+    padding: 12px 14px !important;
+  }
+  .checklist-row > div:last-child {
+    align-self: flex-end !important;
+  }
+
+  /* Sticky Bottom Enrollment CTA Bar on Mobile */
+  .sticky-bottom-enrollment {
+    padding: 10px 14px !important;
+  }
+  .sticky-bar-inner {
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    gap: 8px !important;
+  }
+  .sticky-bar-inner strong {
+    font-size: 13px !important;
+    max-width: 140px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+  .sticky-bar-inner .btn {
+    padding: 8px 14px !important;
+    font-size: 12px !important;
+  }
+
+  /* Pack Builder Bottom Tray on Mobile */
+  .tray-floating-bottom {
+    padding: 10px 14px !important;
+  }
+  .tray-floating-bottom > div {
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    gap: 8px !important;
+  }
+  .tray-floating-bottom #selectedChipsList {
+    display: none !important;
+  }
+  #trayPriceText {
+    font-size: 20px !important;
+  }
+  #btnEnrollPack {
+    padding: 8px 14px !important;
+    font-size: 12px !important;
+  }
+
+  /* Reposition Floating Demo Pill when sticky bottom CTAs exist */
+  body:has(.sticky-bottom-enrollment.visible) .mobile-demo-pill,
+  body:has(.tray-floating-bottom) .mobile-demo-pill {
+    bottom: 84px !important;
   }
 }
+

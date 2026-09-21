@@ -1,6 +1,6 @@
 /**
  * Tutedude Platform Interactive Script
- * Handles global theming, sticky navbars, modal previews, filtering, and refund simulation
+ * Handles global theming, sticky navbars, modal previews, mobile drawers, filtering, and refund simulation
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initStickyNavbar();
   initStickyBottomBar();
   initModals();
+  initMobileDrawer();
 });
 
 /* ==========================================================================
@@ -21,13 +22,17 @@ function initTheme() {
   const toggleBtns = document.querySelectorAll('.theme-toggle-btn');
   toggleBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', newTheme);
-      localStorage.setItem('td_theme', newTheme);
-      updateThemeToggleLabels(newTheme);
+      toggleTheme();
     });
   });
+}
+
+function toggleTheme() {
+  const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', newTheme);
+  localStorage.setItem('td_theme', newTheme);
+  updateThemeToggleLabels(newTheme);
 }
 
 function updateThemeToggleLabels(theme) {
@@ -67,7 +72,6 @@ function initStickyBottomBar() {
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      // If hero card is visible, hide bottom sticky bar. If user scrolls past it, show it.
       if (!entry.isIntersecting) {
         stickyBar.classList.add('visible');
       } else {
@@ -77,6 +81,64 @@ function initStickyBottomBar() {
   }, { threshold: 0.1 });
 
   observer.observe(heroCard);
+}
+
+/* ==========================================================================
+   Mobile Navigation Drawer & Mobile Demo FAB
+   ========================================================================== */
+function initMobileDrawer() {
+  // Close drawer when clicking any nav link inside it
+  document.querySelectorAll('.mobile-drawer-link').forEach(link => {
+    link.addEventListener('click', () => {
+      closeMobileMenu();
+    });
+  });
+}
+
+function toggleMobileMenu() {
+  const drawer = document.getElementById('mobileNavDrawer');
+  const backdrop = document.getElementById('mobileDrawerBackdrop');
+  if (!drawer) return;
+
+  const isOpen = drawer.classList.contains('open');
+  if (isOpen) {
+    closeMobileMenu();
+  } else {
+    drawer.classList.add('open');
+    if (backdrop) backdrop.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeMobileMenu() {
+  const drawer = document.getElementById('mobileNavDrawer');
+  const backdrop = document.getElementById('mobileDrawerBackdrop');
+  if (drawer) drawer.classList.remove('open');
+  if (backdrop) backdrop.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function toggleMobileDemo() {
+  const sheet = document.getElementById('mobileDemoSheet');
+  const backdrop = document.getElementById('mobileDemoBackdrop');
+  if (!sheet) return;
+
+  const isOpen = sheet.classList.contains('open');
+  if (isOpen) {
+    closeMobileDemo();
+  } else {
+    sheet.classList.add('open');
+    if (backdrop) backdrop.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeMobileDemo() {
+  const sheet = document.getElementById('mobileDemoSheet');
+  const backdrop = document.getElementById('mobileDemoBackdrop');
+  if (sheet) sheet.classList.remove('open');
+  if (backdrop) backdrop.classList.remove('active');
+  document.body.style.overflow = '';
 }
 
 /* ==========================================================================
@@ -92,9 +154,13 @@ function initModals() {
     });
   });
 
-  // ESC key closes modals
+  // ESC key closes modals & drawers
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeAllModals();
+    if (e.key === 'Escape') {
+      closeAllModals();
+      closeMobileMenu();
+      closeMobileDemo();
+    }
   });
 }
 
@@ -132,8 +198,11 @@ function showToast(message, type = 'success') {
     container.id = 'toastContainer';
     container.style.cssText = `
       position: fixed;
-      top: 60px;
-      right: 24px;
+      top: 16px;
+      right: 16px;
+      left: 16px;
+      max-width: 400px;
+      margin: 0 auto;
       z-index: 9999;
       display: flex;
       flex-direction: column;
@@ -148,15 +217,15 @@ function showToast(message, type = 'success') {
   toast.style.cssText = `
     background: ${bg};
     color: #ffffff;
-    padding: 12px 20px;
+    padding: 12px 18px;
     border-radius: 12px;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
     display: flex;
     align-items: center;
     gap: 10px;
-    animation: slideInRight 0.3s ease;
+    animation: slideUp 0.3s ease;
     pointer-events: auto;
   `;
   const icon = type === 'success' ? 'check_circle' : 'info';

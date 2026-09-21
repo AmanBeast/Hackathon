@@ -73,7 +73,7 @@
         <a href="#student-projects" class="nav-item">Student Projects</a>
       </nav>
 
-      <div class="nav-actions">
+      <div class="nav-actions desktop-only">
         <div class="nav-search">
           <span class="material-symbols-outlined search-icon">search</span>
           <input type="text" id="globalCourseSearch" placeholder="Search Python, React, AI..." oninput="handleGlobalSearch(this.value)">
@@ -84,6 +84,19 @@
         <a href="#courses-catalog" class="btn btn-sm btn-primary">
           Explore Courses
         </a>
+      </div>
+
+      <!-- Mobile Header Actions -->
+      <div class="mobile-header-actions">
+        <button class="mobile-icon-btn theme-toggle-btn" aria-label="Toggle Theme">
+          <span class="material-symbols-outlined theme-toggle-icon" style="font-size: 20px;">dark_mode</span>
+        </button>
+        <a href="dashboard.html" class="mobile-icon-btn" aria-label="Student Portal">
+          <span class="material-symbols-outlined" style="font-size: 20px;">account_circle</span>
+        </a>
+        <button class="mobile-hamburger-btn" onclick="toggleMobileMenu()" aria-label="Open Navigation Menu">
+          <span class="material-symbols-outlined" style="font-size: 24px;">menu</span>
+        </button>
       </div>
     </div>
   </header>
@@ -945,9 +958,132 @@
           <a href="#" class="footer-link">Contact Support</a>
         </div>
       </div>
-
+    </div>
+    <div style="border-top: 1px solid #1e293b; margin-top: 48px; padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; font-size: 13px; color: #94a3b8;">
+      <div>© 2026 Tutedude Edtech Platform. All rights reserved. 100% Refund Challenge Model.</div>
+      <div style="display: flex; gap: 16px;">
+        <span>UPI / NEFT Verified Cashback</span>
+        <span>ISO 9001:2015 Certified</span>
+      </div>
     </div>
   </footer>
+
+  <!-- ========================================================================
+       MOBILE NAVIGATION DRAWER
+       ======================================================================== -->
+  <div class="mobile-drawer-backdrop" id="mobileDrawerBackdrop" onclick="closeMobileMenu()"></div>
+  <aside class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile Navigation">
+    <div class="mobile-drawer-header">
+      <div class="logo-wrapper" style="font-size: 18px;">
+        <img src="assets/td-badge.png" alt="Tutedude Logo" style="height: 28px;">
+        <span>tutedude</span>
+      </div>
+      <button class="mobile-icon-btn" onclick="closeMobileMenu()" aria-label="Close Navigation">
+        <span class="material-symbols-outlined" style="font-size: 20px;">close</span>
+      </button>
+    </div>
+
+    <!-- Student Quick Portal Card -->
+    <a href="dashboard.html" class="mobile-drawer-link" style="background: var(--bg-surface-subtle); border: 1px solid var(--border-subtle); margin-bottom: 12px;">
+      <img src="assets/student-rahul.png" alt="Profile" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover;">
+      <div>
+        <strong style="font-size: 13px; display: block; color: var(--text-primary);">Student LMS Portal</strong>
+        <span style="font-size: 11px; color: var(--color-emerald); font-weight: 600;">Active 100% Refund Challenge</span>
+      </div>
+    </a>
+
+    <!-- Primary Navigation Links -->
+    <div style="display: flex; flex-direction: column; gap: 4px; margin-bottom: 16px;">
+      <a href="#courses-catalog" class="mobile-drawer-link">
+        <span class="material-symbols-outlined" style="color: var(--color-primary);">auto_stories</span>
+        <span>All Courses (50+)</span>
+      </a>
+      <a href="#career-paths" class="mobile-drawer-link">
+        <span class="material-symbols-outlined" style="color: var(--color-primary);">explore</span>
+        <span>Career Paths</span>
+      </a>
+      <a href="pack-builder.html" class="mobile-drawer-link">
+        <span class="material-symbols-outlined" style="color: var(--color-emerald);">tune</span>
+        <span>Customize Pack (Pick 4)</span>
+      </a>
+      <a href="#how-refund-works" class="mobile-drawer-link">
+        <span class="material-symbols-outlined" style="color: var(--color-amber);">verified_user</span>
+        <span>How 100% Refund Works</span>
+      </a>
+      <a href="#mentorship" class="mobile-drawer-link">
+        <span class="material-symbols-outlined" style="color: var(--color-primary);">headset_mic</span>
+        <span>1:1 Live Mentorship</span>
+      </a>
+      <a href="#student-projects" class="mobile-drawer-link">
+        <span class="material-symbols-outlined" style="color: var(--color-primary);">code</span>
+        <span>Student Projects</span>
+      </a>
+    </div>
+
+    <!-- Hackathon Quick View Switcher inside drawer -->
+    <div style="border-top: 1px solid var(--border-subtle); padding-top: 14px; margin-top: auto;">
+      <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 8px;">
+        ⚡ Hackathon Evaluator Views
+      </span>
+      <div style="display: flex; flex-direction: column; gap: 4px;">
+        <a href="index.html" class="mobile-drawer-link active" style="padding: 8px 12px; font-size: 13px;">
+          <span class="material-symbols-outlined" style="font-size: 18px;">home</span> Homepage
+        </a>
+        <a href="course.html?id=mern" class="mobile-drawer-link" style="padding: 8px 12px; font-size: 13px;">
+          <span class="material-symbols-outlined" style="font-size: 18px;">auto_stories</span> Course Template
+        </a>
+        <a href="dashboard.html" class="mobile-drawer-link" style="padding: 8px 12px; font-size: 13px;">
+          <span class="material-symbols-outlined" style="font-size: 18px;">dashboard</span> Student LMS
+        </a>
+        <a href="admin.html" class="mobile-drawer-link" style="padding: 8px 12px; font-size: 13px;">
+          <span class="material-symbols-outlined" style="font-size: 18px;">admin_panel_settings</span> Admin CMS
+        </a>
+        <a href="pack-builder.html" class="mobile-drawer-link" style="padding: 8px 12px; font-size: 13px;">
+          <span class="material-symbols-outlined" style="font-size: 18px;">tune</span> Pick 4 Builder
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ========================================================================
+       MOBILE DEMO FLOATING PILL & BOTTOM SHEET
+       ======================================================================== -->
+  <div class="mobile-demo-pill" onclick="toggleMobileDemo()" aria-label="Toggle Demo Views">
+    <span class="pulse-dot"></span>
+    <span>Demo Views</span>
+    <span class="material-symbols-outlined" style="font-size: 16px;">expand_less</span>
+  </div>
+
+  <div class="mobile-demo-backdrop" id="mobileDemoBackdrop" onclick="closeMobileDemo()"></div>
+  <aside class="mobile-demo-sheet" id="mobileDemoSheet" aria-label="Demo Views Drawer">
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <span class="pulse-dot"></span>
+        <strong style="font-size: 15px;">Hackathon Prototype Views</strong>
+      </div>
+      <button class="mobile-icon-btn" onclick="closeMobileDemo()" style="width: 32px; height: 32px;">
+        <span class="material-symbols-outlined" style="font-size: 18px;">close</span>
+      </button>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+      <a href="index.html" class="btn btn-sm btn-primary" style="justify-content: flex-start;">
+        <span class="material-symbols-outlined">home</span> Homepage
+      </a>
+      <a href="course.html?id=mern" class="btn btn-sm btn-secondary" style="justify-content: flex-start;">
+        <span class="material-symbols-outlined">auto_stories</span> Course Template
+      </a>
+      <a href="dashboard.html" class="btn btn-sm btn-secondary" style="justify-content: flex-start;">
+        <span class="material-symbols-outlined">dashboard</span> Student LMS
+      </a>
+      <a href="admin.html" class="btn btn-sm btn-secondary" style="justify-content: flex-start;">
+        <span class="material-symbols-outlined">admin_panel_settings</span> Admin CMS
+      </a>
+      <a href="pack-builder.html" class="btn btn-sm btn-secondary" style="grid-column: span 2; justify-content: center;">
+        <span class="material-symbols-outlined">tune</span> Customize Pack (Pick Any 4)
+      </a>
+    </div>
+  </aside>
 
   <!-- Scripts -->
   <script src="js/courses-data.js"></script>

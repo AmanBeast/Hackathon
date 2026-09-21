@@ -89,12 +89,110 @@
       border-radius: var(--radius-md);
       margin-bottom: 8px;
     }
+    .dash-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 32px;
+      min-width: 0;
+      box-sizing: border-box;
+    }
+    main {
+      min-width: 0;
+      max-width: 100%;
+    }
     @media (max-width: 1024px) {
       .dashboard-layout {
         grid-template-columns: 1fr;
       }
       .dash-sidebar {
         position: static;
+      }
+    }
+    @media (max-width: 768px) {
+      .dashboard-layout {
+        display: block !important;
+        padding: 12px 14px 80px !important;
+        margin: 0 auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      .dash-sidebar {
+        display: none !important;
+      }
+      main {
+        display: block !important;
+        min-width: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      .challenge-spotlight-card,
+      .dash-card {
+        padding: 16px 12px !important;
+        border-radius: var(--radius-lg) !important;
+        margin-bottom: 20px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      .challenge-spotlight-card h2 {
+        font-size: 18px !important;
+        line-height: 1.3 !important;
+        word-break: break-word !important;
+      }
+      .challenge-spotlight-card p {
+        font-size: 13px !important;
+        word-break: break-word !important;
+      }
+      .countdown-grid {
+        display: flex !important;
+        gap: 6px !important;
+        margin: 14px 0 !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      .timer-box {
+        flex: 1 1 0px !important;
+        min-width: 0 !important;
+        padding: 8px 2px !important;
+        box-sizing: border-box !important;
+        text-align: center !important;
+      }
+      .timer-val {
+        font-size: 17px !important;
+        line-height: 1.1 !important;
+      }
+      .timer-lbl {
+        font-size: 8px !important;
+        letter-spacing: -0.02em !important;
+        white-space: nowrap !important;
+      }
+      .checklist-row {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 6px !important;
+        padding: 10px 12px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      .checklist-row span {
+        word-break: break-word !important;
+      }
+      .checklist-row > div:last-child {
+        align-self: flex-start !important;
+      }
+      #refundStatusPill .section-tag {
+        font-size: 11px !important;
+        padding: 4px 8px !important;
+        white-space: normal !important;
+        text-align: center !important;
+      }
+      #claimRefundBtn {
+        width: 100% !important;
+        justify-content: center !important;
       }
     }
   </style>
@@ -140,15 +238,28 @@
     <div class="nav-container">
       <a href="index.html" class="logo-wrapper">
         <img src="assets/td-badge.png" alt="Tutedude Logo" class="logo-img">
-        <span>tutedude <span style="font-size: 13px; color: var(--color-emerald); font-weight: 600; margin-left: 4px;">STUDENT LMS</span></span>
+        <span>tutedude <span style="font-size: 13px; color: var(--color-emerald); font-weight: 600; margin-left: 4px;" class="desktop-only">STUDENT LMS</span></span>
       </a>
 
-      <div class="nav-actions">
+      <div class="nav-actions desktop-only">
         <div style="display: flex; align-items: center; gap: 10px; background: var(--bg-surface-subtle); padding: 4px 12px; border-radius: var(--radius-full); border: 1px solid var(--border-subtle);">
           <img src="assets/student-rahul.png" alt="Profile" style="width: 28px; height: 28px; border-radius: 50%; object-fit: cover;">
           <span style="font-size: 13px; font-weight: 600;">Rahul Sharma</span>
           <span class="section-tag green" style="margin: 0; padding: 2px 6px; font-size: 10px;">100% Challenge</span>
         </div>
+      </div>
+
+      <!-- Mobile Header Actions -->
+      <div class="mobile-header-actions">
+        <button class="mobile-icon-btn theme-toggle-btn" aria-label="Toggle Theme">
+          <span class="material-symbols-outlined theme-toggle-icon" style="font-size: 20px;">dark_mode</span>
+        </button>
+        <a href="index.html" class="mobile-icon-btn" aria-label="Homepage">
+          <span class="material-symbols-outlined" style="font-size: 20px;">home</span>
+        </a>
+        <button class="mobile-hamburger-btn" onclick="toggleMobileMenu()" aria-label="Open Navigation Menu">
+          <span class="material-symbols-outlined" style="font-size: 24px;">menu</span>
+        </button>
       </div>
     </div>
   </header>
@@ -299,12 +410,12 @@
       </div>
 
       <!-- Current Ongoing Module & Lesson Player Simulation -->
-      <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-xl); padding: 32px; box-shadow: var(--shadow-sm); margin-bottom: 32px;">
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+      <div class="dash-card">
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
           <div>
             <span class="section-tag blue">Resume Learning</span>
-            <h3 style="font-size: 22px; margin-top: 6px;">Next Up: Module 6 — Real-Time WebSockets Architecture</h3>
-            <p style="font-size: 13px; color: var(--text-secondary);">Lesson 32: Rooms, Namespaces & Presence Tracking in Socket.io</p>
+            <h3 style="font-size: 20px; margin-top: 6px; word-break: break-word;">Next Up: Module 6 — Real-Time WebSockets Architecture</h3>
+            <p style="font-size: 13px; color: var(--text-secondary); word-break: break-word;">Lesson 32: Rooms, Namespaces & Presence Tracking in Socket.io</p>
           </div>
           <button class="btn btn-sm btn-primary" onclick="openVideoPreview('Lesson 32: Rooms, Namespaces & Presence Tracking', 32)">
             <span class="material-symbols-outlined">play_arrow</span>
@@ -324,7 +435,7 @@
       </div>
 
       <!-- Certificate Locker Section -->
-      <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-xl); padding: 32px; box-shadow: var(--shadow-sm);">
+      <div class="dash-card">
         <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
           <div style="display: flex; align-items: center; gap: 16px;">
             <div style="width: 52px; height: 52px; border-radius: var(--radius-md); background: var(--color-emerald-subtle); color: var(--color-emerald); display: flex; align-items: center; justify-content: center;">
@@ -441,6 +552,115 @@
       </div>
     </div>
   </div>
+
+  <!-- ========================================================================
+       MOBILE NAVIGATION DRAWER
+       ======================================================================== -->
+  <div class="mobile-drawer-backdrop" id="mobileDrawerBackdrop" onclick="closeMobileMenu()"></div>
+  <aside class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile Navigation">
+    <div class="mobile-drawer-header">
+      <div class="logo-wrapper" style="font-size: 18px;">
+        <img src="assets/td-badge.png" alt="Tutedude Logo" style="height: 28px;">
+        <span>tutedude</span>
+      </div>
+      <button class="mobile-icon-btn" onclick="closeMobileMenu()" aria-label="Close Navigation">
+        <span class="material-symbols-outlined" style="font-size: 20px;">close</span>
+      </button>
+    </div>
+
+    <!-- Student Profile Card in Drawer -->
+    <div style="background: var(--bg-surface-subtle); border: 1px solid var(--border-subtle); padding: 14px; border-radius: var(--radius-md); margin-bottom: 14px; display: flex; align-items: center; gap: 12px;">
+      <img src="assets/student-rahul.png" alt="Rahul" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover;">
+      <div>
+        <strong style="font-size: 14px; display: block; color: var(--text-primary);">Rahul Sharma</strong>
+        <span style="font-size: 11px; color: var(--color-emerald); font-weight: 700;">Cohort: March 2026</span>
+      </div>
+    </div>
+
+    <!-- Student Dashboard Links -->
+    <div style="display: flex; flex-direction: column; gap: 4px; margin-bottom: 16px;">
+      <a href="index.html" class="mobile-drawer-link">
+        <span class="material-symbols-outlined" style="color: var(--color-primary);">home</span>
+        <span>Homepage</span>
+      </a>
+      <a href="course.html?id=mern" class="mobile-drawer-link">
+        <span class="material-symbols-outlined" style="color: var(--color-primary);">play_lesson</span>
+        <span>My Course (Full Stack MERN)</span>
+      </a>
+      <a href="pack-builder.html" class="mobile-drawer-link">
+        <span class="material-symbols-outlined" style="color: var(--color-emerald);">tune</span>
+        <span>Pick 4 Builder</span>
+      </a>
+      <a href="#claimRefundSection" class="mobile-drawer-link" onclick="closeMobileMenu()">
+        <span class="material-symbols-outlined" style="color: var(--color-emerald);">verified</span>
+        <span>Claim 100% Refund (₹699)</span>
+      </a>
+    </div>
+
+    <!-- Hackathon Quick View Switcher inside drawer -->
+    <div style="border-top: 1px solid var(--border-subtle); padding-top: 14px; margin-top: auto;">
+      <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 8px;">
+        ⚡ Hackathon Evaluator Views
+      </span>
+      <div style="display: flex; flex-direction: column; gap: 4px;">
+        <a href="index.html" class="mobile-drawer-link" style="padding: 8px 12px; font-size: 13px;">
+          <span class="material-symbols-outlined" style="font-size: 18px;">home</span> Homepage
+        </a>
+        <a href="course.html?id=mern" class="mobile-drawer-link" style="padding: 8px 12px; font-size: 13px;">
+          <span class="material-symbols-outlined" style="font-size: 18px;">auto_stories</span> Course Template
+        </a>
+        <a href="dashboard.html" class="mobile-drawer-link active" style="padding: 8px 12px; font-size: 13px;">
+          <span class="material-symbols-outlined" style="font-size: 18px;">dashboard</span> Student LMS
+        </a>
+        <a href="admin.html" class="mobile-drawer-link" style="padding: 8px 12px; font-size: 13px;">
+          <span class="material-symbols-outlined" style="font-size: 18px;">admin_panel_settings</span> Admin CMS
+        </a>
+        <a href="pack-builder.html" class="mobile-drawer-link" style="padding: 8px 12px; font-size: 13px;">
+          <span class="material-symbols-outlined" style="font-size: 18px;">tune</span> Pick 4 Builder
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ========================================================================
+       MOBILE DEMO FLOATING PILL & BOTTOM SHEET
+       ======================================================================== -->
+  <div class="mobile-demo-pill" onclick="toggleMobileDemo()" aria-label="Toggle Demo Views">
+    <span class="pulse-dot"></span>
+    <span>Demo Views</span>
+    <span class="material-symbols-outlined" style="font-size: 16px;">expand_less</span>
+  </div>
+
+  <div class="mobile-demo-backdrop" id="mobileDemoBackdrop" onclick="closeMobileDemo()"></div>
+  <aside class="mobile-demo-sheet" id="mobileDemoSheet" aria-label="Demo Views Drawer">
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <span class="pulse-dot"></span>
+        <strong style="font-size: 15px;">Hackathon Prototype Views</strong>
+      </div>
+      <button class="mobile-icon-btn" onclick="closeMobileDemo()" style="width: 32px; height: 32px;">
+        <span class="material-symbols-outlined" style="font-size: 18px;">close</span>
+      </button>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+      <a href="index.html" class="btn btn-sm btn-secondary" style="justify-content: flex-start;">
+        <span class="material-symbols-outlined">home</span> Homepage
+      </a>
+      <a href="course.html?id=mern" class="btn btn-sm btn-secondary" style="justify-content: flex-start;">
+        <span class="material-symbols-outlined">auto_stories</span> Course Template
+      </a>
+      <a href="dashboard.html" class="btn btn-sm btn-primary" style="justify-content: flex-start;">
+        <span class="material-symbols-outlined">dashboard</span> Student LMS
+      </a>
+      <a href="admin.html" class="btn btn-sm btn-secondary" style="justify-content: flex-start;">
+        <span class="material-symbols-outlined">admin_panel_settings</span> Admin CMS
+      </a>
+      <a href="pack-builder.html" class="btn btn-sm btn-secondary" style="grid-column: span 2; justify-content: center;">
+        <span class="material-symbols-outlined">tune</span> Customize Pack (Pick Any 4)
+      </a>
+    </div>
+  </aside>
 
   <!-- Scripts -->
   <script src="js/courses-data.js"></script>

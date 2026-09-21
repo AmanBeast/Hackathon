@@ -118,6 +118,24 @@
     </div>
   </aside>
 
+  <!-- Mobile Admin Header -->
+  <header class="main-header mobile-admin-header" style="position: sticky; top: 0; z-index: 100;">
+    <div class="nav-container">
+      <a href="index.html" class="logo-wrapper">
+        <img src="assets/td-badge.png" alt="Tutedude Logo" class="logo-img">
+        <span>tutedude <span style="font-size: 11px; color: var(--color-primary); font-weight: 700; background: rgba(37,99,235,0.15); padding: 2px 6px; border-radius: 4px;">ADMIN</span></span>
+      </a>
+      <div class="mobile-header-actions">
+        <button class="mobile-icon-btn theme-toggle-btn" aria-label="Toggle Theme">
+          <span class="material-symbols-outlined theme-toggle-icon" style="font-size: 20px;">dark_mode</span>
+        </button>
+        <button class="mobile-hamburger-btn" onclick="toggleMobileMenu()" aria-label="Open Navigation Menu">
+          <span class="material-symbols-outlined" style="font-size: 24px;">menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
   <!-- ========================================================================
        ADMIN CONSOLE LAYOUT
        ======================================================================== -->
@@ -176,6 +194,13 @@
     <!-- Main Workspace -->
     <main class="admin-main">
       
+      <!-- Mobile Quick Admin Tab Switcher -->
+      <div class="mobile-admin-tabs">
+        <button class="btn btn-sm btn-primary mobile-tab-btn" onclick="switchAdminTab('catalog'); setMobileTabActive(this);">Courses & Pricing</button>
+        <button class="btn btn-sm btn-secondary mobile-tab-btn" onclick="switchAdminTab('refunds'); setMobileTabActive(this);">Refund Queue (3)</button>
+        <button class="btn btn-sm btn-secondary mobile-tab-btn" onclick="switchAdminTab('copy'); setMobileTabActive(this);">Copy & Rules</button>
+      </div>
+
       <!-- Top Command Context Bar -->
       <div class="admin-card" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; border-left: 4px solid var(--color-primary-container);">
         <div style="display: flex; align-items: center; gap: 16px;">
@@ -400,12 +425,126 @@
         </div>
       </div>
     </div>
+  <!-- ========================================================================
+       MOBILE NAVIGATION DRAWER
+       ======================================================================== -->
+  <div class="mobile-drawer-backdrop" id="mobileDrawerBackdrop" onclick="closeMobileMenu()"></div>
+  <aside class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile Navigation">
+    <div class="mobile-drawer-header">
+      <div class="logo-wrapper" style="font-size: 18px;">
+        <img src="assets/td-badge.png" alt="Tutedude Logo" style="height: 28px;">
+        <span>tutedude</span>
+      </div>
+      <button class="mobile-icon-btn" onclick="closeMobileMenu()" aria-label="Close Navigation">
+        <span class="material-symbols-outlined" style="font-size: 20px;">close</span>
+      </button>
+    </div>
+
+    <!-- Admin Profile Card -->
+    <div style="background: rgba(255, 255, 255, 0.05); padding: 14px; border-radius: var(--radius-md); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; border: 1px solid var(--border-subtle);">
+      <img src="assets/student-aniket.png" alt="Admin" style="width: 38px; height: 38px; border-radius: 50%; object-fit: cover;">
+      <div>
+        <div style="font-size: 13px; font-weight: 700; color: var(--text-primary);">Arjun Sharma</div>
+        <div style="font-size: 11px; color: var(--color-emerald);">Super Admin Console</div>
+      </div>
+    </div>
+
+    <!-- Admin Fast Section Links -->
+    <div style="display: flex; flex-direction: column; gap: 4px; margin-bottom: 16px;">
+      <a href="index.html" class="mobile-drawer-link">
+        <span class="material-symbols-outlined" style="color: var(--color-primary);">home</span>
+        <span>Homepage</span>
+      </a>
+      <a href="javascript:void(0)" class="mobile-drawer-link" onclick="switchAdminTab('catalog'); closeMobileMenu();">
+        <span class="material-symbols-outlined" style="color: var(--color-primary);">menu_book</span>
+        <span>Courses & ₹699 Pricing</span>
+      </a>
+      <a href="javascript:void(0)" class="mobile-drawer-link" onclick="switchAdminTab('refunds'); closeMobileMenu();">
+        <span class="material-symbols-outlined" style="color: var(--color-emerald);">verified_user</span>
+        <span>100% Refund Queue (3 Pending)</span>
+      </a>
+      <a href="javascript:void(0)" class="mobile-drawer-link" onclick="switchAdminTab('copy'); closeMobileMenu();">
+        <span class="material-symbols-outlined" style="color: var(--color-amber);">edit_document</span>
+        <span>Site Content & Copy</span>
+      </a>
+    </div>
+
+    <!-- Hackathon Quick View Switcher inside drawer -->
+    <div style="border-top: 1px solid var(--border-subtle); padding-top: 14px; margin-top: auto;">
+      <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 8px;">
+        ⚡ Hackathon Evaluator Views
+      </span>
+      <div style="display: flex; flex-direction: column; gap: 4px;">
+        <a href="index.html" class="mobile-drawer-link" style="padding: 8px 12px; font-size: 13px;">
+          <span class="material-symbols-outlined" style="font-size: 18px;">home</span> Homepage
+        </a>
+        <a href="course.html?id=mern" class="mobile-drawer-link" style="padding: 8px 12px; font-size: 13px;">
+          <span class="material-symbols-outlined" style="font-size: 18px;">auto_stories</span> Course Template
+        </a>
+        <a href="dashboard.html" class="mobile-drawer-link" style="padding: 8px 12px; font-size: 13px;">
+          <span class="material-symbols-outlined" style="font-size: 18px;">dashboard</span> Student LMS
+        </a>
+        <a href="admin.html" class="mobile-drawer-link active" style="padding: 8px 12px; font-size: 13px;">
+          <span class="material-symbols-outlined" style="font-size: 18px;">admin_panel_settings</span> Admin CMS
+        </a>
+        <a href="pack-builder.html" class="mobile-drawer-link" style="padding: 8px 12px; font-size: 13px;">
+          <span class="material-symbols-outlined" style="font-size: 18px;">tune</span> Pick 4 Builder
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ========================================================================
+       MOBILE DEMO FLOATING PILL & BOTTOM SHEET
+       ======================================================================== -->
+  <div class="mobile-demo-pill" onclick="toggleMobileDemo()" aria-label="Toggle Demo Views">
+    <span class="pulse-dot"></span>
+    <span>Demo Views</span>
+    <span class="material-symbols-outlined" style="font-size: 16px;">expand_less</span>
   </div>
+
+  <div class="mobile-demo-backdrop" id="mobileDemoBackdrop" onclick="closeMobileDemo()"></div>
+  <aside class="mobile-demo-sheet" id="mobileDemoSheet" aria-label="Demo Views Drawer">
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <span class="pulse-dot"></span>
+        <strong style="font-size: 15px;">Hackathon Prototype Views</strong>
+      </div>
+      <button class="mobile-icon-btn" onclick="closeMobileDemo()" style="width: 32px; height: 32px;">
+        <span class="material-symbols-outlined" style="font-size: 18px;">close</span>
+      </button>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+      <a href="index.html" class="btn btn-sm btn-secondary" style="justify-content: flex-start;">
+        <span class="material-symbols-outlined">home</span> Homepage
+      </a>
+      <a href="course.html?id=mern" class="btn btn-sm btn-secondary" style="justify-content: flex-start;">
+        <span class="material-symbols-outlined">auto_stories</span> Course Template
+      </a>
+      <a href="dashboard.html" class="btn btn-sm btn-secondary" style="justify-content: flex-start;">
+        <span class="material-symbols-outlined">dashboard</span> Student LMS
+      </a>
+      <a href="admin.html" class="btn btn-sm btn-primary" style="justify-content: flex-start;">
+        <span class="material-symbols-outlined">admin_panel_settings</span> Admin CMS
+      </a>
+      <a href="pack-builder.html" class="btn btn-sm btn-secondary" style="grid-column: span 2; justify-content: center;">
+        <span class="material-symbols-outlined">tune</span> Customize Pack (Pick Any 4)
+      </a>
+    </div>
+  </aside>
 
   <!-- Scripts -->
   <script src="js/courses-data.js"></script>
   <script src="js/app.js"></script>
   <script>
+    function setMobileTabActive(btn) {
+      document.querySelectorAll('.mobile-tab-btn').forEach(b => {
+        b.className = 'btn btn-sm btn-secondary mobile-tab-btn';
+      });
+      btn.className = 'btn btn-sm btn-primary mobile-tab-btn';
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
       renderAdminCatalog();
     });
