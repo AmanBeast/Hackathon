@@ -1,0 +1,760 @@
+Design a reusable, production-quality course detail page template for Tutedude.
+
+REFERENCE:
+https://tutedude.com
+
+The design must NOT be created for one specific course only.
+
+It must function as a UNIVERSAL COURSE PAGE TEMPLATE that an admin/CMS can populate for:
+
+- Python
+- Data Science
+- Machine Learning
+- React
+- MERN Stack
+- UI/UX
+- DSA
+- Cybersecurity
+- Finance
+- Marketing
+- DevOps
+- Cloud
+- Video Editing
+- Any future Tutedude course
+
+The visual structure must remain consistent while course-specific content is dynamically replaced.
+
+==================================================
+PRIMARY OBJECTIVE
+==================================================
+
+The course page must answer these questions in order:
+
+1. What will I learn?
+2. Who is this course for?
+3. What will I be able to build/do?
+4. How long is it?
+5. Who teaches it?
+6. What support do I get?
+7. How does the refund opportunity work?
+8. What exactly do I need to complete to qualify?
+9. What do previous learners say?
+10. What do I get after completing it?
+11. Why should I enroll?
+
+The page should convert interest into enrollment without feeling like an aggressive sales page.
+
+==================================================
+DESIGN SYSTEM
+==================================================
+
+Use the same visual language as the redesigned Tutedude homepage.
+
+Style:
+- Premium modern EdTech
+- Clean
+- Trustworthy
+- Career-oriented
+- High information clarity
+- Strong typography
+- White/light neutral background
+- Dark text
+- Tutedude brand accent
+- Rounded cards
+- Subtle shadows
+- Minimal gradients
+- High-quality icons
+- Strong CTA hierarchy
+
+==================================================
+1. COURSE HERO
+==================================================
+
+Create a two-column hero.
+
+LEFT:
+
+Category badge
+
+Course title:
+"[COURSE TITLE]"
+
+Subtitle:
+"Master [SKILLS] and build real-world [OUTCOME]."
+
+Short description.
+
+Rating:
+★★★★★ 4.8
+
+Learners:
+"4,000+ learners"
+
+Course metadata:
+- [X] hours
+- [X] modules
+- Self-paced
+- Lifetime access
+- Certificate
+
+RIGHT:
+
+Premium enrollment card.
+
+Show:
+
+"₹699"
+
+or dynamically configured course fee.
+
+Primary CTA:
+
+"Start Learning"
+
+Then create a visually distinct refund card:
+
+"100% REFUND OPPORTUNITY"
+
+"Complete the required course content + assignments within [REFUND PERIOD] to become eligible for the applicable refund."
+
+CTA:
+"See Refund Rules"
+
+Important:
+Do not hardcode "90 days", "3 months", "6 months" or any other duration.
+
+The admin should be able to configure this.
+
+==================================================
+2. TRUST STRIP
+==================================================
+
+Immediately below hero:
+
+4.8+ Rating
+4,000+ Learners
+[X] Hours Content
+Lifetime Access
+1:1 Mentorship
+Certificate
+
+Make it visually compact.
+
+==================================================
+3. "WHAT YOU'LL LEARN"
+==================================================
+
+Create a visually strong learning-outcomes section.
+
+Heading:
+
+"What You'll Learn"
+
+Use 2-column checklist.
+
+Example dynamic content:
+
+✓ Fundamentals of [topic]
+✓ Real-world implementation
+✓ Industry tools
+✓ Practical projects
+✓ Problem solving
+✓ Best practices
+✓ Deployment
+✓ Portfolio building
+
+Admin should be able to add/remove/reorder outcomes.
+
+==================================================
+4. COURSE OUTCOMES
+==================================================
+
+Create:
+
+"By the End of This Course, You'll Be Able To..."
+
+Show 4–6 outcome cards.
+
+Each card:
+Icon
+Outcome title
+1–2 line description
+
+Example:
+
+Build Real Projects
+Create portfolio-ready projects.
+
+Use Industry Tools
+Work with tools used in real workflows.
+
+Solve Real Problems
+Apply concepts rather than only watching lectures.
+
+==================================================
+5. COURSE CURRICULUM
+==================================================
+
+This should be one of the most important components.
+
+Create an expandable curriculum accordion.
+
+Each module:
+
+Module 01
+"Introduction to [Topic]"
+
+[X] Lessons
+[X] Hours
+
+Expand to reveal:
+
+Lesson 1
+Lesson 2
+Lesson 3
+Assignment
+Project
+
+Use:
+- Video icon
+- Assignment icon
+- Project icon
+- Lock icon for preview/locked content
+
+Admin should be able to dynamically create:
+
+modules[]
+lessons[]
+assignments[]
+projects[]
+
+The UI must automatically update based on this data.
+
+==================================================
+6. PROJECTS
+==================================================
+
+Create a section:
+
+"Build Projects. Build Proof."
+
+Show 3–6 project cards.
+
+Each project:
+
+Project image
+Project name
+Difficulty
+Skills used
+Short description
+
+CTA:
+"View Project"
+
+Use realistic placeholder projects but clearly structure the UI for dynamic CMS content.
+
+==================================================
+7. ASSIGNMENTS + REFUND REQUIREMENTS
+==================================================
+
+This section is CRITICAL.
+
+Create a dedicated component called:
+
+"Your Path to 100% Refund"
+
+Use a visual timeline:
+
+01
+Enroll
+
+↓
+
+02
+Complete Lessons
+
+↓
+
+03
+Submit Assignments
+
+↓
+
+04
+Complete Required Projects / Assessment
+
+↓
+
+05
+Meet the Challenge Deadline
+
+↓
+
+06
+Refund Eligibility Verification
+
+↓
+
+07
+Eligible Fee Refunded
+
+Make this visually prominent but trustworthy.
+
+Add a clearly visible:
+
+"Refund eligibility depends on completing the requirements specified for this course within the applicable timeframe."
+
+Create a "View Complete Refund Policy" link.
+
+Do not make unsupported promises.
+
+==================================================
+8. COURSE PROGRESS / COMMITMENT
+==================================================
+
+Create an optional component that can be used after enrollment.
+
+Example:
+
+YOUR COURSE JOURNEY
+
+32% Complete
+
+Lessons
+12/36
+
+Assignments
+4/10
+
+Projects
+1/3
+
+Refund Challenge
+45 days remaining
+
+This component should be designed so that the same course page can eventually transform into a logged-in student dashboard.
+
+==================================================
+9. INSTRUCTOR
+==================================================
+
+Create:
+
+"Learn From Industry Experts"
+
+Instructor card:
+
+Photo
+Name
+Designation
+Experience
+Specialization
+LinkedIn/social links
+
+Stats:
+
+[X] Courses
+[X] Students
+[X] Years Experience
+[X] Rating
+
+Admin should be able to replace instructor information.
+
+==================================================
+10. MENTORSHIP
+==================================================
+
+Create:
+
+"You're Not Learning Alone."
+
+Show:
+
+Recorded learning
++
+1:1 doubt solving
++
+Project guidance
++
+Career guidance
+
+Create a visual interaction flow.
+
+Include configurable mentor availability.
+
+Do not imply that all courses have identical mentorship arrangements.
+
+==================================================
+11. WHO IS THIS COURSE FOR?
+==================================================
+
+Create audience cards:
+
+Beginners
+Students
+Working Professionals
+Career Switchers
+
+The admin should be able to enable/disable audience types.
+
+==================================================
+12. PREREQUISITES
+==================================================
+
+Create a compact section:
+
+"Prerequisites"
+
+Show:
+
+✓ No prior experience required
+
+OR dynamically:
+
+✓ Basic Python knowledge
+✓ Basic mathematics
+✓ Laptop required
+
+Make these fields configurable by admin.
+
+==================================================
+13. TOOLS & TECHNOLOGIES
+==================================================
+
+Create a visual technology stack section.
+
+Example:
+
+Python
+Pandas
+NumPy
+Scikit-learn
+Jupyter
+Git
+SQL
+
+Every technology should have:
+- Logo/icon
+- Name
+
+Admin can add/remove technologies.
+
+==================================================
+14. CERTIFICATE
+==================================================
+
+Create a premium certificate preview section.
+
+Heading:
+
+"Get Recognized for Completing the Course"
+
+Show certificate mockup.
+
+Explain:
+- Completion criteria
+- Certificate availability
+- Verification if applicable
+
+Avoid making unsupported claims.
+
+==================================================
+15. STUDENT TESTIMONIALS
+==================================================
+
+Create dynamic testimonials.
+
+Each:
+
+Photo
+Name
+Course
+Rating
+Short quote
+
+Add carousel functionality.
+
+Admin should be able to add/remove testimonials.
+
+==================================================
+16. COURSE FAQ
+==================================================
+
+Create dynamic accordion.
+
+Questions should include:
+
+How does the refund work?
+What are the refund requirements?
+How long do I have to complete the course?
+What happens if I miss the deadline?
+Do I retain course access after refund?
+Is mentorship included?
+How are assignments submitted?
+Do I get a certificate?
+Is this course suitable for beginners?
+What are the prerequisites?
+
+Admin must be able to create custom FAQs.
+
+==================================================
+17. FINAL ENROLLMENT CTA
+==================================================
+
+Create a high-conversion final CTA.
+
+Headline:
+
+"Ready to Start [COURSE TITLE]?"
+
+Subheading:
+
+"Learn the skills. Complete the journey. Build something real."
+
+Display:
+
+Course Fee
+Refund Opportunity
+Lifetime Access
+Mentorship
+Certificate
+
+CTA:
+
+"Start Learning"
+
+Secondary:
+
+"View Curriculum"
+
+==================================================
+18. STICKY ENROLLMENT CTA
+==================================================
+
+On desktop:
+
+Create a sticky bottom/right enrollment bar after the user scrolls past the hero.
+
+Show:
+
+[Course Name]
+₹699
+100% Refund Opportunity
+[Start Learning]
+
+On mobile:
+
+Create a sticky bottom CTA.
+
+Example:
+
+₹699 | 100% Refund
+[Start Learning]
+
+This should not cover important content.
+
+==================================================
+ADMIN / CMS TEMPLATE REQUIREMENT
+==================================================
+
+The most important requirement:
+
+This page is a TEMPLATE.
+
+Create the visual system so that an admin can create a new course without redesigning the page.
+
+Think of the page as a component system.
+
+Create reusable components:
+
+CourseHero
+CourseStats
+LearningOutcomes
+CourseOutcomes
+Curriculum
+Projects
+Assignments
+RefundJourney
+Instructor
+Mentorship
+Audience
+Prerequisites
+TechStack
+Certificate
+Testimonials
+FAQ
+EnrollmentCTA
+
+Each component receives dynamic data.
+
+Example conceptual data structure:
+
+course:
+{
+ title,
+ category,
+ subtitle,
+ description,
+ thumbnail,
+ price,
+ originalPrice,
+ rating,
+ learners,
+ duration,
+ modules,
+ outcomes,
+ projects,
+ assignments,
+ refundPolicy,
+ refundPeriod,
+ refundRequirements,
+ instructor,
+ mentors,
+ prerequisites,
+ technologies,
+ certificate,
+ testimonials,
+ faqs
+}
+
+The UI must gracefully handle:
+
+- Missing instructor
+- No projects
+- No testimonials
+- Different number of modules
+- Different refund periods
+- Different pricing
+- Different course lengths
+- Different prerequisites
+- Different technologies
+- Courses with/without mentorship
+- Courses with different completion requirements
+
+Do not create empty-looking sections.
+
+If a component has no data, hide the section automatically.
+
+==================================================
+ADMIN CONFIGURATION
+==================================================
+
+Design with future admin control in mind.
+
+Admin should theoretically be able to configure:
+
+Basic Information
+- Course title
+- Category
+- Description
+- Thumbnail
+- Price
+- Discount
+- Rating
+
+Course Structure
+- Modules
+- Lessons
+- Assignments
+- Projects
+- Duration
+
+Refund
+- Eligible fee
+- Challenge duration
+- Completion requirements
+- Assignment requirements
+- Project requirements
+- Refund process
+- Refund processing timeline
+
+Instructor
+- Name
+- Photo
+- Bio
+- Experience
+- Social links
+
+Mentorship
+- Availability
+- Format
+- Session details
+
+Marketing
+- Testimonials
+- FAQs
+- Outcomes
+- Technologies
+
+The front-end should not need to be redesigned when any of these values change.
+
+==================================================
+RESPONSIVE DESIGN
+==================================================
+
+Create responsive layouts for:
+
+1440px
+1280px
+1024px
+768px
+390px
+
+Mobile should prioritize:
+
+Course title
+Rating
+Price
+Refund opportunity
+Start Learning CTA
+Course outcomes
+Curriculum
+Refund requirements
+
+Use accordions and horizontal scrolling where appropriate.
+
+==================================================
+UX DETAILS
+==================================================
+
+Add:
+
+- Sticky navigation
+- Smooth scrolling
+- Accordion animations
+- Hover states
+- Button states
+- Skeleton/loading states
+- Video preview state
+- Locked lesson state
+- Enrollment state
+- Progress state
+- Refund progress state
+- Success state
+- Empty state
+
+Use accessibility-friendly contrast and typography.
+
+==================================================
+FINAL DESIGN GOAL
+==================================================
+
+The final course page should feel like:
+
+"Coursera-level information architecture
++
+modern startup UI
++
+career-focused EdTech
++
+Tutedude's unique refund model"
+
+It should be substantially more polished, structured and trustworthy than a conventional course landing page.
+
+The user should understand the course within 30 seconds and understand exactly how the refund opportunity works without having to search through the website.
+
+Most importantly:
+
+DO NOT DESIGN A ONE-OFF COURSE PAGE.
+
+DESIGN A REUSABLE COURSE-PAGE DESIGN SYSTEM THAT CAN POWER 50+ COURSES THROUGH AN ADMIN/CMS.

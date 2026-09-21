@@ -1,0 +1,27 @@
+Course Template Data
+
+course_title
+course_category
+course_subtitle
+course_description
+instructor
+rating
+learner_count
+duration
+difficulty
+language
+price
+original_price
+refund_amount
+refund_deadline
+refund_period
+completion_requirements
+modules[]
+projects[]
+assignments[]
+tools[]
+skills[]
+mentor_details
+certificate_details
+faqs[]
+testimonials[]

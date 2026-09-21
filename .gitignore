@@ -1,0 +1,17 @@
+# Operating System & Editor Files
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+.vscode/
+.idea/
+
+# Local Dev & Vercel
+.vercel/
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Raw Scraped Data & Design Dumps (Assets are organized in /assets)
+stitch_tutedude_edtech_platform_redesign/

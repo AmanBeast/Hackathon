@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutedude — Build Skills That Move Your Career Forward | 100% Refundable</title>
+  <meta name="description" content="Learn practical tech, AI, development and design skills with 1:1 mentorship, live projects, and a 100% course fee refund when you complete on time.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       TOP DEMO TOOLBAR (Hackathon Evaluator Switcher)
+       ======================================================================== -->
+  <aside class="demo-switcher-bar" aria-label="Demo Navigation">
+    <div class="brand-tag">
+      <span class="pulse-dot"></span>
+      <span>TUTEDUDE HACKATHON PROTOTYPE</span>
+      <span style="opacity: 0.6; font-weight: 400; margin-left: 6px;">| Homepage View</span>
+    </div>
+    <div class="demo-nav-links">
+      <a href="index.html" class="demo-nav-btn active">
+        <span class="material-symbols-outlined" style="font-size:16px;">home</span> Homepage
+      </a>
+      <a href="course.html" class="demo-nav-btn">
+        <span class="material-symbols-outlined" style="font-size:16px;">auto_stories</span> Course Template
+      </a>
+      <a href="dashboard.html" class="demo-nav-btn">
+        <span class="material-symbols-outlined" style="font-size:16px;">dashboard</span> Student LMS
+      </a>
+      <a href="admin.html" class="demo-nav-btn">
+        <span class="material-symbols-outlined" style="font-size:16px;">admin_panel_settings</span> Admin CMS
+      </a>
+      <a href="pack-builder.html" class="demo-nav-btn">
+        <span class="material-symbols-outlined" style="font-size:16px;">tune</span> Pick 4 Builder
+      </a>
+      <button class="theme-toggle-btn" aria-label="Toggle Theme">
+        <span class="material-symbols-outlined theme-toggle-icon" style="font-size:16px;">dark_mode</span>
+        <span class="theme-toggle-text">Dark</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ========================================================================
+       1. TOP ANNOUNCEMENT BAR
+       ======================================================================== -->
+  <div class="announcement-bar">
+    <span class="badge">
+      <span class="material-symbols-outlined" style="font-size:14px;">bolt</span> 100% REFUND OFFER
+    </span>
+    <span>Complete your course + assignments within the applicable challenge period to get your entire course fee back.</span>
+    <a href="#how-refund-works" style="color: var(--color-amber); font-weight: 700; text-decoration: underline; font-size: 12px; margin-left: 6px;">
+      See Rules & Terms →
+    </a>
+  </div>
+
+  <!-- ========================================================================
+       2. STICKY MODERN NAVBAR
+       ======================================================================== -->
+  <header class="main-header">
+    <div class="nav-container">
+      <a href="index.html" class="logo-wrapper">
+        <img src="assets/td-badge.png" alt="Tutedude Logo" class="logo-img">
+        <span>tutedude</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#courses-catalog" class="nav-item">Courses</a>
+        <a href="#career-paths" class="nav-item">Career Paths</a>
+        <a href="#combo-packs" class="nav-item">Combo Packs</a>
+        <a href="#how-refund-works" class="nav-item">How It Works</a>
+        <a href="#mentorship" class="nav-item">Mentorship</a>
+        <a href="#student-projects" class="nav-item">Student Projects</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="nav-search">
+          <span class="material-symbols-outlined search-icon">search</span>
+          <input type="text" id="globalCourseSearch" placeholder="Search Python, React, AI..." oninput="handleGlobalSearch(this.value)">
+        </div>
+        <a href="dashboard.html" class="btn btn-sm btn-secondary">
+          <span class="material-symbols-outlined" style="font-size:16px;">login</span> Login
+        </a>
+        <a href="#courses-catalog" class="btn btn-sm btn-primary">
+          Explore Courses
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       3. HIGH-IMPACT HERO SECTION
+       ======================================================================== -->
+  <section class="hero-section">
+    <div class="hero-grid">
+      
+      <!-- Left Column: Copy & Actions -->
+      <div class="hero-content">
+        <div class="section-tag green">
+          <span class="material-symbols-outlined" style="font-size:14px;">verified</span>
+          <span>Zero Net Cost Upskilling Model</span>
+        </div>
+
+        <h1>
+          Build Skills That Move Your <span class="highlight-blue">Career Forward</span>.
+        </h1>
+
+        <p>
+          Learn career-focused skills from industry mentors with practical projects, live 1:1 doubt support and an ironclad <strong>100% refund opportunity</strong> when you complete your course requirements within the applicable challenge period.
+        </p>
+
+        <div class="hero-ctas">
+          <a href="#courses-catalog" class="btn btn-primary btn-lg">
+            <span>Explore 50+ Courses</span>
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </a>
+          <a href="#how-refund-works" class="btn btn-secondary btn-lg">
+            <span class="material-symbols-outlined" style="color: var(--color-primary);">play_circle</span>
+            <span>How 100% Refund Works</span>
+          </a>
+        </div>
+
+        <!-- Social Proof Avatars Strip in Hero -->
+        <div style="display: flex; align-items: center; gap: 16px; padding-top: 12px;">
+          <div style="display: flex; margin-left: 8px;">
+            <img src="assets/student-rahul.png" alt="Student" style="width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 2px solid var(--bg-surface); margin-left: -8px;">
+            <img src="assets/student-priya.png" alt="Student" style="width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 2px solid var(--bg-surface); margin-left: -8px;">
+            <img src="assets/student-aniket.png" alt="Student" style="width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 2px solid var(--bg-surface); margin-left: -8px;">
+          </div>
+          <div>
+            <div style="display: flex; align-items: center; gap: 4px; color: var(--color-amber); font-size: 13px; font-weight: 700;">
+              ★★★★★ 4.9/5
+            </div>
+            <div style="font-size: 13px; color: var(--text-secondary);">
+              Trusted by <strong>100,000+ ambitious students</strong> across India
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive Refund Card -->
+      <aside class="refund-interactive-card" aria-label="How Refund Works Progression">
+        <div class="card-header-badge">
+          <span style="font-size: 12px; font-weight: 800; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.05em;">
+            The Tutedude Formula
+          </span>
+          <span class="section-tag green" style="margin: 0; font-size: 11px;">
+            100% Guaranteed
+          </span>
+        </div>
+
+        <h3 style="font-size: 20px; margin-bottom: 20px;">
+          COMMIT → LEARN → GET REFUNDED
+        </h3>
+
+        <div class="timeline-steps-vertical">
+          
+          <!-- Step 1 -->
+          <div class="timeline-step">
+            <div class="step-num">01</div>
+            <div class="step-details">
+              <h4>Enroll & Commit</h4>
+              <p>Pay an affordable commitment fee (₹699) to activate your course and dedicated mentor.</p>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="timeline-step">
+            <div class="step-num">02</div>
+            <div class="step-details">
+              <h4>Learn & Complete Capstones</h4>
+              <p>Watch structured modules, solve practical assignments, and deploy real portfolio projects.</p>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="timeline-step">
+            <div class="step-num active">
+              <span class="material-symbols-outlined" style="font-size: 18px;">check</span>
+            </div>
+            <div class="step-details">
+              <h4 style="color: var(--color-emerald); font-weight: 800;">100% Course Fee Back</h4>
+              <p style="color: var(--color-emerald-deep); font-weight: 600;">Complete the criteria within the challenge period and receive ₹699 directly via UPI / Bank.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Trust Stamp -->
+        <div class="refund-trust-stamp">
+          <span class="material-symbols-outlined stamp-icon">currency_rupee_circle</span>
+          <div class="stamp-text">
+            <strong>₹4.2+ Crores Refunded</strong>
+            <span>disbursed to 28,000+ disciplined Indian graduates</span>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       4. TRUST / SOCIAL PROOF STRIP
+       ======================================================================== -->
+  <section class="trust-strip">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <span class="trust-num">50+</span>
+        <span class="trust-label">Industry-Ready Courses</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-num">100K+</span>
+        <span class="trust-label">Active Learners Enrolled</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-num green">100K+</span>
+        <span class="trust-label">Doubts Resolved Live</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-num">10K+</span>
+        <span class="trust-label">Deployed Student Projects</span>
+      </div>
+      <div class="trust-item">
+        <div style="display: flex; align-items: center; justify-content: center; gap: 4px;">
+          <span class="trust-num" style="color: var(--color-amber);">4.9</span>
+          <span class="material-symbols-outlined" style="color: var(--color-amber); font-variation-settings: 'FILL' 1; font-size: 24px;">star</span>
+        </div>
+        <span class="trust-label">Google Review Rating</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       5. "HOW CAN YOU LEARN FOR FREE?" SECTION
+       ======================================================================== -->
+  <section class="section-wrapper" id="how-refund-works">
+    <div class="section-header">
+      <span class="section-tag green">Philosophy & Process</span>
+      <h2 class="section-title">Your Commitment Becomes Your Opportunity</h2>
+      <p class="section-desc">
+        Why pay tens of thousands for passive bootcamps? We believe you should only pay if you give up. Complete the work, and your education is on us.
+      </p>
+    </div>
+
+    <div class="three-step-grid">
+      
+      <!-- Step 1 Card -->
+      <div class="step-card">
+        <span class="step-big-badge">01</span>
+        <div class="step-card-icon">
+          <span class="material-symbols-outlined">payments</span>
+        </div>
+        <h3>ENROLL</h3>
+        <p>
+          Pay the nominal enrollment fee (₹699). This creates psychological skin in the game so you don't abandon the course like free tutorials on YouTube.
+        </p>
+      </div>
+
+      <!-- Step 2 Card -->
+      <div class="step-card">
+        <span class="step-big-badge">02</span>
+        <div class="step-card-icon">
+          <span class="material-symbols-outlined">school</span>
+        </div>
+        <h3>LEARN + COMPLETE</h3>
+        <p>
+          Finish the recorded lessons, submit your assignments with ≥ 80% score, and deploy required capstone projects within the designated challenge period (e.g. 90 days).
+        </p>
+      </div>
+
+      <!-- Step 3 Card -->
+      <div class="step-card green">
+        <span class="step-big-badge" style="color: var(--color-emerald-subtle);">03</span>
+        <div class="step-card-icon">
+          <span class="material-symbols-outlined">account_balance_wallet</span>
+        </div>
+        <h3 style="color: var(--color-emerald-deep);">GET REFUNDED</h3>
+        <p>
+          Once our mentors verify your project code and submissions, the entire eligible ₹699 fee is transferred back into your UPI ID or Bank account within 48 hours.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Mandatory Important Disclaimer -->
+    <div class="refund-legal-disclaimer">
+      <span class="material-symbols-outlined" style="font-size: 18px; vertical-align: middle; color: var(--color-amber);">info</span>
+      <strong>Notice:</strong> Refund eligibility, completion criteria and challenge timelines vary by course. Complete project specifications and passing metrics are detailed on each individual course syllabus page.
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       6. COURSE DISCOVERY SECTION
+       ======================================================================== -->
+  <section class="section-wrapper" id="courses-catalog" style="background: var(--bg-surface-subtle); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+    <div class="section-header">
+      <span class="section-tag blue">Practical Tech Curriculum</span>
+      <h2 class="section-title">Learn Skills That Actually Build Careers</h2>
+      <p class="section-desc">Choose from practical, career-focused courses created for ambitious students and working professionals.</p>
+    </div>
+
+    <!-- Discovery Toolbar -->
+    <div class="discovery-toolbar">
+      <div class="category-chips" id="categoryChips">
+        <button class="chip active" onclick="filterCategory('All', this)">All Courses</button>
+        <button class="chip" onclick="filterCategory('Development', this)">Development</button>
+        <button class="chip" onclick="filterCategory('AI & ML', this)">AI & Machine Learning</button>
+        <button class="chip" onclick="filterCategory('Data Science', this)">Data Science</button>
+        <button class="chip" onclick="filterCategory('Design', this)">UI/UX Design</button>
+        <button class="chip" onclick="filterCategory('DSA', this)">DSA & LeetCode</button>
+        <button class="chip" onclick="filterCategory('Cloud & DevOps', this)">Cloud & DevOps</button>
+      </div>
+
+      <div style="font-size: 13px; color: var(--text-muted);">
+        Showing <strong id="courseCountLabel" style="color: var(--text-primary);">6</strong> career courses
+      </div>
+    </div>
+
+    <!-- Dynamic Course Cards Grid -->
+    <div class="course-grid" id="homepageCourseGrid">
+      <!-- Populated dynamically via JS -->
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       7. CAREER PATHS ("Don't Just Learn a Skill. Build a Career Path.")
+       ======================================================================== -->
+  <section class="section-wrapper" id="career-paths">
+    <div class="section-header">
+      <span class="section-tag blue">Structured Roadmaps</span>
+      <h2 class="section-title">Don't Just Learn a Skill. Build a Career Path.</h2>
+      <p class="section-desc">Comprehensive roadmaps combining multiple courses, real industry projects, 1:1 mentor code reviews, and placement assistance.</p>
+    </div>
+
+    <div class="career-paths-grid">
+      
+      <!-- Path 1 -->
+      <div class="career-path-card">
+        <div class="path-icon-box">
+          <span class="material-symbols-outlined">terminal</span>
+        </div>
+        <h3 style="font-size: 20px; margin-bottom: 8px;">Full Stack Engineer</h3>
+        <p style="font-size: 14px; color: var(--text-secondary);">
+          React 19, Node.js, Express, MongoDB, TypeScript, Docker, and system design for high-scale products.
+        </p>
+        <div class="path-steps">
+          <span>Foundation</span> → <span>5 Capstones</span> → <span>1:1 IIT Mentors</span> → <span>Placement</span>
+        </div>
+        <a href="course.html?id=mern" class="btn btn-sm btn-secondary" style="margin-top: auto;">
+          Explore Career Path →
+        </a>
+      </div>
+
+      <!-- Path 2 -->
+      <div class="career-path-card">
+        <div class="path-icon-box" style="background: var(--color-emerald-subtle); color: var(--color-emerald);">
+          <span class="material-symbols-outlined">psychology</span>
+        </div>
+        <h3 style="font-size: 20px; margin-bottom: 8px;">AI & GenAI Engineer</h3>
+        <p style="font-size: 14px; color: var(--text-secondary);">
+          Python, PyTorch, Deep Learning, LangChain, Pinecone, and building production RAG AI agents.
+        </p>
+        <div class="path-steps">
+          <span>Math Intuition</span> → <span>PyTorch</span> → <span>LLMs & RAG</span> → <span>Production</span>
+        </div>
+        <a href="course.html?id=aiml" class="btn btn-sm btn-secondary" style="margin-top: auto;">
+          Explore Career Path →
+        </a>
+      </div>
+
+      <!-- Path 3 -->
+      <div class="career-path-card">
+        <div class="path-icon-box" style="background: var(--color-amber-subtle); color: var(--color-amber);">
+          <span class="material-symbols-outlined">monitoring</span>
+        </div>
+        <h3 style="font-size: 20px; margin-bottom: 8px;">Data Scientist</h3>
+        <p style="font-size: 14px; color: var(--text-secondary);">
+          Advanced SQL, Power BI DAX, Python, Pandas, statistical modeling, and executive CXO storytelling.
+        </p>
+        <div class="path-steps">
+          <span>SQL Ninja</span> → <span>Power BI</span> → <span>Predictive ML</span> → <span>Case Studies</span>
+        </div>
+        <a href="course.html?id=datascience" class="btn btn-sm btn-secondary" style="margin-top: auto;">
+          Explore Career Path →
+        </a>
+      </div>
+
+      <!-- Path 4 -->
+      <div class="career-path-card">
+        <div class="path-icon-box">
+          <span class="material-symbols-outlined">palette</span>
+        </div>
+        <h3 style="font-size: 20px; margin-bottom: 8px;">UI/UX Product Designer</h3>
+        <p style="font-size: 14px; color: var(--text-secondary);">
+          User research, wireframing, Figma Auto-Layout, design systems, tokens, and Behance case studies.
+        </p>
+        <div class="path-steps">
+          <span>UX Research</span> → <span>Figma Pro</span> → <span>Design System</span> → <span>Portfolio</span>
+        </div>
+        <a href="course.html?id=uiux" class="btn btn-sm btn-secondary" style="margin-top: auto;">
+          Explore Career Path →
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       8. COMBO PACKS ("Build Your Complete Skill Stack")
+       ======================================================================== -->
+  <section class="section-wrapper" id="combo-packs" style="background: var(--bg-surface-subtle); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+    <div class="section-header">
+      <span class="section-tag green">Curated Bundles</span>
+      <h2 class="section-title">Build Your Complete Skill Stack</h2>
+      <p class="section-desc">Bundle multiple courses for deep multidisciplinary mastery, complete with individual 100% refund challenges.</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 32px;">
+      
+      <!-- Pack 1: Customize Pack (Pick Any 4) -->
+      <div style="background: var(--bg-surface); border: 2px solid var(--color-primary-container); border-radius: var(--radius-xl); padding: 36px; box-shadow: var(--shadow-lg); display: flex; flex-direction: column; position: relative;">
+        <span class="section-tag green" style="position: absolute; top: 20px; right: 20px; font-size: 11px;">
+          Save 46% + 100% Refundable
+        </span>
+        <span style="font-size: 12px; font-weight: 700; color: var(--color-primary); text-transform: uppercase;">Most Flexible</span>
+        <h3 style="font-size: 26px; margin: 8px 0;">Customize Pack (Pick Any 4)</h3>
+        <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 20px;">
+          Curate your personalized tech bundle. Choose any 4 courses across Development, AI, Data, Design, or DevOps.
+        </p>
+
+        <div style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 16px;">
+          <span style="font-family: var(--font-heading); font-size: 34px; font-weight: 800; color: var(--text-primary);">₹1,999</span>
+          <span style="font-size: 16px; color: var(--text-muted); text-decoration: line-through;">₹2,796</span>
+          <span style="font-size: 13px; color: var(--color-emerald); font-weight: 700;">(Only ₹499/course)</span>
+        </div>
+
+        <ul style="padding-left: 20px; font-size: 14px; color: var(--text-secondary); margin-bottom: 28px; display: flex; flex-direction: column; gap: 10px;">
+          <li>✓ Pick any 4 courses from 50+ catalog</li>
+          <li>✓ 4 verified certificates upon completion</li>
+          <li>✓ 1:1 doubt desk support from IIT mentors</li>
+          <li>✓ 100% fee refund opportunity on completion</li>
+          <li>✓ Full lifetime access to all 4 courses</li>
+        </ul>
+
+        <a href="pack-builder.html" class="btn btn-primary btn-lg" style="width: 100%; margin-top: auto;">
+          <span>Build My Pack (Pick Any 4)</span>
+          <span class="material-symbols-outlined">arrow_forward</span>
+        </a>
+      </div>
+
+      <!-- Pack 2: All-Access 77 Courses Pack -->
+      <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-xl); padding: 36px; box-shadow: var(--shadow-sm); display: flex; flex-direction: column;">
+        <span style="font-size: 12px; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Unlimited Mastery</span>
+        <h3 style="font-size: 26px; margin: 8px 0;">All-Access Pack (77 Courses)</h3>
+        <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 20px;">
+          Unlock every single course on Tutedude forever. Web, AI/ML, Cloud, Cybersecurity, Finance, Design & Mobile.
+        </p>
+
+        <div style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 16px;">
+          <span style="font-family: var(--font-heading); font-size: 34px; font-weight: 800; color: var(--text-primary);">₹4,999</span>
+          <span style="font-size: 16px; color: var(--text-muted); text-decoration: line-through;">₹18,999</span>
+          <span style="font-size: 13px; color: var(--color-emerald); font-weight: 700;">(Lifetime Pass)</span>
+        </div>
+
+        <ul style="padding-left: 20px; font-size: 14px; color: var(--text-secondary); margin-bottom: 28px; display: flex; flex-direction: column; gap: 10px;">
+          <li>✓ Unlimited access to all 77 current & future courses</li>
+          <li>✓ 77 individual accredited certificates</li>
+          <li>✓ VIP priority 1:1 mentor queue</li>
+          <li>✓ Career placement preparation & mock interviews</li>
+          <li>✓ Lifetime community membership</li>
+        </ul>
+
+        <button class="btn btn-secondary btn-lg" style="width: 100%; margin-top: auto;" onclick="showToast('All-Access Pack Selected! Redirecting to checkout...')">
+          <span>Get All-Access Pass</span>
+          <span class="material-symbols-outlined">verified</span>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       9. WHY TUTEDUDE ("More Than Just Recorded Lectures")
+       ======================================================================== -->
+  <section class="section-wrapper" id="why-tutedude">
+    <div class="section-header">
+      <span class="section-tag blue">The Unfair Advantage</span>
+      <h2 class="section-title">More Than Just Recorded Lectures</h2>
+      <p class="section-desc">Why thousands of Indian college students choose Tutedude over traditional Udemy or Coursera courses.</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+      
+      <div class="step-card">
+        <div class="step-card-icon" style="background: var(--color-emerald-subtle); color: var(--color-emerald);">
+          <span class="material-symbols-outlined">currency_rupee</span>
+        </div>
+        <h4>100% Refund Opportunity</h4>
+        <p>Zero financial risk when you commit to finishing your assignments on time.</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-card-icon">
+          <span class="material-symbols-outlined">screen_share</span>
+        </div>
+        <h4>1:1 Live Mentorship</h4>
+        <p>Instant doubt desk with average 7-minute live response and screen-share debugging.</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-card-icon">
+          <span class="material-symbols-outlined">code</span>
+        </div>
+        <h4>Real Capstone Projects</h4>
+        <p>Build 5 production-grade applications that impress recruiters in tech hiring rounds.</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-card-icon" style="background: var(--color-amber-subtle); color: var(--color-amber);">
+          <span class="material-symbols-outlined">work</span>
+        </div>
+        <h4>Placement Assistance</h4>
+        <p>Resume teardowns, GitHub optimization, and direct referrals to 500+ hiring partners.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       10. 1:1 MENTORSHIP WORKFLOW SECTION
+       ======================================================================== -->
+  <section class="section-wrapper" id="mentorship" style="background: var(--bg-surface-subtle); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+    <div class="section-header">
+      <span class="section-tag green">Personalized Support</span>
+      <h2 class="section-title">You're Never Learning Alone</h2>
+      <p class="section-desc">Get unblocked in minutes. Our IIT alumni mentors hop on 1:1 calls to inspect your code, explain logic, and review architecture.</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-top: 40px;" id="mentorshipFlowGrid">
+      
+      <div class="timeline-card-step">
+        <div class="circle-num">01</div>
+        <h5>Hit a Code Bug</h5>
+        <p>Stuck on an error or architecture question while coding.</p>
+      </div>
+
+      <div class="timeline-card-step">
+        <div class="circle-num">02</div>
+        <h5>Request Session</h5>
+        <p>Click "Request Mentor" inside your student portal.</p>
+      </div>
+
+      <div class="timeline-card-step">
+        <div class="circle-num">03</div>
+        <h5>Hop on Screen Share</h5>
+        <p>Mentor joins within ~7 minutes via live video & audio.</p>
+      </div>
+
+      <div class="timeline-card-step">
+        <div class="circle-num">04</div>
+        <h5>Live Debugging</h5>
+        <p>Walk through breakpoints and fix the root problem together.</p>
+      </div>
+
+      <div class="timeline-card-step success">
+        <div class="circle-num">
+          <span class="material-symbols-outlined" style="font-size: 16px;">thumb_up</span>
+        </div>
+        <h5 style="color: var(--color-emerald-deep);">Deploy Clean Code</h5>
+        <p style="color: var(--color-emerald-deep);">Keep learning forward with full confidence.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       11. STUDENT PROJECTS SHOWCASE ("Don't Just Watch. Build.")
+       ======================================================================== -->
+  <section class="section-wrapper" id="student-projects">
+    <div class="section-header">
+      <span class="section-tag blue">Showcase</span>
+      <h2 class="section-title">Don't Just Watch. Build.</h2>
+      <p class="section-desc">Inspect real portfolio projects built by Tutedude learners during their courses.</p>
+    </div>
+
+    <div class="course-grid">
+      
+      <div class="course-card">
+        <div class="course-card-thumb">
+          <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=600&auto=format&fit=crop&q=80" alt="Project">
+          <span class="course-badge-overlay">Full Stack MERN</span>
+        </div>
+        <div class="course-card-body">
+          <h4 class="course-card-title">EdFlow Learning SaaS Platform</h4>
+          <p class="course-card-sub">Video streaming, lesson progress tracking, interactive quizzes, and Razorpay integration.</p>
+          <div class="course-tags-cloud">
+            <span class="tech-tag">React 19</span>
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">MongoDB</span>
+            <span class="tech-tag">Razorpay</span>
+          </div>
+          <div class="course-card-footer">
+            <span style="font-size: 12px; color: var(--text-muted);">Built by <strong>Rahul Sharma</strong></span>
+            <a href="course.html?id=mern" class="btn btn-sm btn-secondary">Inspect Repo →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-card-thumb">
+          <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&auto=format&fit=crop&q=80" alt="Project">
+          <span class="course-badge-overlay">Generative AI & RAG</span>
+        </div>
+        <div class="course-card-body">
+          <h4 class="course-card-title">DocuBot Enterprise AI Assistant</h4>
+          <p class="course-card-sub">Autonomous RAG agent querying 1,000+ page enterprise manuals with zero hallucinations.</p>
+          <div class="course-tags-cloud">
+            <span class="tech-tag">LangChain</span>
+            <span class="tech-tag">Pinecone</span>
+            <span class="tech-tag">Llama 3</span>
+            <span class="tech-tag">FastAPI</span>
+          </div>
+          <div class="course-card-footer">
+            <span style="font-size: 12px; color: var(--text-muted);">Built by <strong>Pooja Hegde</strong></span>
+            <a href="course.html?id=aiml" class="btn btn-sm btn-secondary">Inspect Repo →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-card-thumb">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&auto=format&fit=crop&q=80" alt="Project">
+          <span class="course-badge-overlay">Data Analytics</span>
+        </div>
+        <div class="course-card-body">
+          <h4 class="course-card-title">Swiggy Logistics Command Center</h4>
+          <p class="course-card-sub">Delivery route optimization and delivery delay analysis dashboard processing 500k orders.</p>
+          <div class="course-tags-cloud">
+            <span class="tech-tag">Power BI</span>
+            <span class="tech-tag">SQL</span>
+            <span class="tech-tag">DAX</span>
+            <span class="tech-tag">Data Modeling</span>
+          </div>
+          <div class="course-card-footer">
+            <span style="font-size: 12px; color: var(--text-muted);">Built by <strong>Manish Joshi</strong></span>
+            <a href="course.html?id=datascience" class="btn btn-sm btn-secondary">Inspect Repo →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       12. STUDENT TESTIMONIALS & CAREER OUTCOMES
+       ======================================================================== -->
+  <section class="section-wrapper" id="testimonials" style="background: var(--bg-surface-subtle); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+    <div class="section-header">
+      <span class="section-tag green">Real Stories</span>
+      <h2 class="section-title">From Learning to Placed at Top Companies</h2>
+      <p class="section-desc">See how students used Tutedude's accountability model to build discipline and transform their careers.</p>
+    </div>
+
+    <div class="course-grid">
+      
+      <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 32px; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <img src="assets/student-rahul.png" alt="Student" style="width: 52px; height: 52px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border-accent);">
+              <div>
+                <h4 style="font-size: 17px;">Rahul Mehra</h4>
+                <span style="font-size: 13px; color: var(--color-primary); font-weight: 600;">Frontend Dev at Cleartrip</span>
+              </div>
+            </div>
+            <div style="color: var(--color-amber);">★★★★★</div>
+          </div>
+          <div class="section-tag green" style="font-size: 11px; margin-bottom: 12px;">
+            Tier-3 College → 14.5 LPA Offer
+          </div>
+          <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.6; font-style: italic;">
+            "Tutedude's 100% refund model was the kick I needed. Knowing I'd get my ₹699 back if I finished the assignments kept me accountable every single evening. Got refunded in 48 hours and placed within 3 months!"
+          </p>
+        </div>
+        <div style="margin-top: 24px; font-size: 12px; color: var(--color-emerald); font-weight: 700; display: flex; align-items: center; gap: 6px;">
+          <span class="material-symbols-outlined" style="font-size: 18px;">verified</span> ₹699 100% Fee Refund Disbursed
+        </div>
+      </div>
+
+      <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 32px; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <img src="assets/student-priya.png" alt="Student" style="width: 52px; height: 52px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border-accent);">
+              <div>
+                <h4 style="font-size: 17px;">Ananya Deshmukh</h4>
+                <span style="font-size: 13px; color: var(--color-primary); font-weight: 600;">Software Engineer at Razorpay</span>
+              </div>
+            </div>
+            <div style="color: var(--color-amber);">★★★★★</div>
+          </div>
+          <div class="section-tag green" style="font-size: 11px; margin-bottom: 12px;">
+            Non-IT Degree → Full Stack SDE
+          </div>
+          <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.6; font-style: italic;">
+            "The 1:1 mentor support is unreal. Whenever I was stuck in React state bugs or MongoDB aggregations, a mentor hopped on a call within 6 minutes. Completed on day 78 and got 100% money back."
+          </p>
+        </div>
+        <div style="margin-top: 24px; font-size: 12px; color: var(--color-emerald); font-weight: 700; display: flex; align-items: center; gap: 6px;">
+          <span class="material-symbols-outlined" style="font-size: 18px;">verified</span> ₹699 100% Fee Refund Disbursed
+        </div>
+      </div>
+
+      <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 32px; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <img src="assets/student-aniket.png" alt="Student" style="width: 52px; height: 52px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border-accent);">
+              <div>
+                <h4 style="font-size: 17px;">Tarun Bansal</h4>
+                <span style="font-size: 13px; color: var(--color-primary); font-weight: 600;">SDE-1 at Amazon</span>
+              </div>
+            </div>
+            <div style="color: var(--color-amber);">★★★★★</div>
+          </div>
+          <div class="section-tag green" style="font-size: 11px; margin-bottom: 12px;">
+            Service Company → 28 LPA Amazon SDE
+          </div>
+          <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.6; font-style: italic;">
+            "DP and Graphs were always my nightmare. The pattern-based approach made them crystal clear. The 90-day refund deadline kept me solving 4 problems a day like clockwork. Cleared all 4 rounds at Amazon!"
+          </p>
+        </div>
+        <div style="margin-top: 24px; font-size: 12px; color: var(--color-emerald); font-weight: 700; display: flex; align-items: center; gap: 6px;">
+          <span class="material-symbols-outlined" style="font-size: 18px;">verified</span> ₹699 100% Fee Refund Disbursed
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       13. REFUND EXPLAINER & PHILOSOPHY
+       ======================================================================== -->
+  <section class="section-wrapper" id="refund-philosophy">
+    <div style="max-width: 860px; margin: 0 auto; text-align: center;">
+      <span class="section-tag green">Zero-Risk Model</span>
+      <h2 class="section-title">Why Do We Refund Your Fee?</h2>
+      <p style="font-size: 18px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 32px;">
+        <em>"The fee creates commitment. Completing the learning journey demonstrates consistency."</em>
+      </p>
+      
+      <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-xl); padding: 40px; text-align: left; box-shadow: var(--shadow-sm);">
+        <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px;">
+          Most online courses suffer from an abysmal 5% completion rate because learners have no accountability. When courses are completely free, students procrastinate. When courses cost ₹50,000, students feel exploited.
+        </p>
+        <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 24px;">
+          Tutedude solves this with our <strong>100% Cashback Incentive</strong>:
+        </p>
+
+        <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px;">
+          <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600;">
+            <span class="material-symbols-outlined" style="color: var(--color-emerald);">check_circle</span>
+            <span>1. You enroll for ₹699 to establish commitment</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600;">
+            <span class="material-symbols-outlined" style="color: var(--color-emerald);">check_circle</span>
+            <span>2. You receive full video lectures, repositories, and 1:1 mentorship</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600;">
+            <span class="material-symbols-outlined" style="color: var(--color-emerald);">check_circle</span>
+            <span>3. You build projects, solve assignments, and submit code within the deadline</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600;">
+            <span class="material-symbols-outlined" style="color: var(--color-emerald);">check_circle</span>
+            <span>4. Mentors verify your code quality and completion status</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600;">
+            <span class="material-symbols-outlined" style="color: var(--color-emerald);">check_circle</span>
+            <span>5. 100% of your ₹699 fee is transferred back to your UPI or Bank account</span>
+          </div>
+        </div>
+
+        <div style="padding: 16px; background: var(--color-emerald-subtle); border-radius: var(--radius-md); border: 1px solid rgba(5, 150, 105, 0.2); font-size: 13px; color: var(--color-emerald-deep); font-weight: 600;">
+          🔒 Critical Benefit: Your course access does not disappear after a successful refund. You retain lifetime access to all course recordings and updates.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       14. INTERACTIVE FAQ ACCORDION
+       ======================================================================== -->
+  <section class="section-wrapper" id="faqs" style="background: var(--bg-surface-subtle); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+    <div class="section-header">
+      <span class="section-tag blue">Got Questions?</span>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-desc">Everything you need to know about our courses, mentorship, and refund process.</p>
+    </div>
+
+    <div class="curriculum-accordion" id="homeFaqAccordion" style="max-width: 860px; margin: 0 auto;">
+      
+      <div class="accordion-module expanded">
+        <div class="accordion-header" onclick="toggleFaq(this)">
+          <h4 style="font-size: 15px;">How does the 100% refund actually work?</h4>
+          <span class="material-symbols-outlined" style="color: var(--text-muted);">expand_less</span>
+        </div>
+        <div class="accordion-content">
+          <p style="padding-top: 12px; font-size: 14px; color: var(--text-secondary); line-height: 1.6;">
+            You pay the nominal commitment fee (₹699) upon enrollment. Complete 100% of the lessons, submit all assignments scored ≥ 80%, and deploy the required capstone projects within the course challenge period (e.g. 90 days). Once verified, ₹699 is credited to your bank account or UPI ID.
+          </p>
+        </div>
+      </div>
+
+      <div class="accordion-module">
+        <div class="accordion-header" onclick="toggleFaq(this)">
+          <h4 style="font-size: 15px;">What happens if I miss the challenge deadline?</h4>
+          <span class="material-symbols-outlined" style="color: var(--text-muted);">expand_more</span>
+        </div>
+        <div class="accordion-content">
+          <p style="padding-top: 12px; font-size: 14px; color: var(--text-secondary); line-height: 1.6;">
+            If you miss the deadline, you simply do not receive the cash refund. You do NOT lose course access! You retain lifetime access to continue studying at your own pace and earn your verified certificate whenever you finish.
+          </p>
+        </div>
+      </div>
+
+      <div class="accordion-module">
+        <div class="accordion-header" onclick="toggleFaq(this)">
+          <h4 style="font-size: 15px;">Do I still retain course access after getting the refund?</h4>
+          <span class="material-symbols-outlined" style="color: var(--text-muted);">expand_more</span>
+        </div>
+        <div class="accordion-content">
+          <p style="padding-top: 12px; font-size: 14px; color: var(--text-secondary); line-height: 1.6;">
+            Yes! Your course access does not expire. You retain full lifetime access to video lectures, code repositories, and future syllabus updates.
+          </p>
+        </div>
+      </div>
+
+      <div class="accordion-module">
+        <div class="accordion-header" onclick="toggleFaq(this)">
+          <h4 style="font-size: 15px;">How does 1:1 mentorship work?</h4>
+          <span class="material-symbols-outlined" style="color: var(--text-muted);">expand_more</span>
+        </div>
+        <div class="accordion-content">
+          <p style="padding-top: 12px; font-size: 14px; color: var(--text-secondary); line-height: 1.6;">
+            Whenever you encounter an error or logic roadblock, you can request a live 1:1 session from your student portal. Mentors connect in an average of 7 minutes to share screens, debug code, and review project pull requests.
+          </p>
+        </div>
+      </div>
+
+      <div class="accordion-module">
+        <div class="accordion-header" onclick="toggleFaq(this)">
+          <h4 style="font-size: 15px;">Do I receive an accredited certificate?</h4>
+          <span class="material-symbols-outlined" style="color: var(--text-muted);">expand_more</span>
+        </div>
+        <div class="accordion-content">
+          <p style="padding-top: 12px; font-size: 14px; color: var(--text-secondary); line-height: 1.6;">
+            Yes. Upon completing the curriculum and project milestones, you receive an ISO 9001:2015 accredited digital certificate with a verifiable QR code recognized by over 500+ tech hiring partners across India.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       15. FINAL CTA
+       ======================================================================== -->
+  <section style="background: linear-gradient(135deg, #00285d 0%, #004ac6 100%); color: #ffffff; padding: 80px 24px; text-align: center;">
+    <div style="max-width: 760px; margin: 0 auto;">
+      <span class="section-tag green" style="background: rgba(16, 185, 129, 0.2); color: #6ee7b7;">
+        Zero Risk • 100% Refundable
+      </span>
+      <h2 style="font-size: 42px; margin: 16px 0; color: #ffffff;">Your Next Career Skill Starts Here.</h2>
+      <p style="font-size: 18px; color: #bfdbfe; line-height: 1.6; margin-bottom: 32px;">
+        Choose a course. Commit to learning. Build real projects. Complete the journey. Get 100% of your course fee refunded.
+      </p>
+      <div style="display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap;">
+        <a href="#courses-catalog" class="btn btn-emerald btn-lg">
+          <span class="material-symbols-outlined">bolt</span>
+          <span>Explore Courses at ₹699</span>
+        </a>
+        <a href="#how-refund-works" class="btn btn-secondary btn-lg" style="background: rgba(255, 255, 255, 0.1); color: #ffffff; border-color: rgba(255,255,255,0.3);">
+          <span>See How Refund Works</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       16. COMPREHENSIVE FOOTER
+       ======================================================================== -->
+  <footer style="background: #0b0f19; color: #94a3b8; padding: 64px 24px 32px; border-top: 1px solid #1e293b;">
+    <div style="max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr repeat(4, 1fr); gap: 40px;">
+      
+      <div>
+        <div class="logo-wrapper" style="color: #ffffff; margin-bottom: 16px;">
+          <img src="assets/td-badge.png" alt="Tutedude Logo" class="logo-img">
+          <span>tutedude</span>
+        </div>
+        <p style="font-size: 14px; line-height: 1.6; margin-bottom: 20px;">
+          India's leading career upskilling platform with 1:1 mentorship and an outcome-based 100% refund model.
+        </p>
+        <div style="display: flex; gap: 12px; font-size: 13px; color: #64748b;">
+          <span>© 2026 Tutedude Inc.</span>
+        </div>
+      </div>
+
+      <div>
+        <h4 style="color: #f8fafc; font-size: 14px; text-transform: uppercase; margin-bottom: 16px;">Explore</h4>
+        <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13px;">
+          <a href="#courses-catalog" class="footer-link">Development</a>
+          <a href="#courses-catalog" class="footer-link">AI & Machine Learning</a>
+          <a href="#courses-catalog" class="footer-link">Data Science</a>
+          <a href="#courses-catalog" class="footer-link">UI/UX Design</a>
+          <a href="#courses-catalog" class="footer-link">Cloud & DevOps</a>
+        </div>
+      </div>
+
+      <div>
+        <h4 style="color: #f8fafc; font-size: 14px; text-transform: uppercase; margin-bottom: 16px;">Packs & Paths</h4>
+        <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13px;">
+          <a href="pack-builder.html" class="footer-link">Customize Pack (Pick 4)</a>
+          <a href="#combo-packs" class="footer-link">All-Access 77 Courses</a>
+          <a href="#career-paths" class="footer-link">Career Roadmaps</a>
+          <a href="#student-projects" class="footer-link">Student Projects</a>
+        </div>
+      </div>
+
+      <div>
+        <h4 style="color: #f8fafc; font-size: 14px; text-transform: uppercase; margin-bottom: 16px;">Platform</h4>
+        <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13px;">
+          <a href="dashboard.html" class="footer-link">Student LMS</a>
+          <a href="admin.html" class="footer-link">Admin CMS Console</a>
+          <a href="#how-refund-works" class="footer-link">Refund Policy</a>
+          <a href="#mentorship" class="footer-link">1:1 Mentorship</a>
+        </div>
+      </div>
+
+      <div>
+        <h4 style="color: #f8fafc; font-size: 14px; text-transform: uppercase; margin-bottom: 16px;">Trust & Legal</h4>
+        <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13px;">
+          <a href="#" class="footer-link">Terms & Conditions</a>
+          <a href="#" class="footer-link">Privacy Policy</a>
+          <a href="#" class="footer-link">Refund Criteria Details</a>
+          <a href="#" class="footer-link">Contact Support</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/courses-data.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      renderHomepageCourses(getAllCourses());
+    });
+
+    function renderHomepageCourses(courses) {
+      const grid = document.getElementById('homepageCourseGrid');
+      grid.innerHTML = '';
+      document.getElementById('courseCountLabel').textContent = courses.length;
+
+      courses.forEach(c => {
+        const card = document.createElement('div');
+        card.className = 'course-card';
+        card.innerHTML = `
+          <div class="course-card-thumb">
+            <img src="${c.projects && c.projects[0] ? c.projects[0].image : 'https://images.unsplash.com/photo-1516116211227-bbc00e5720ad?w=600'}" alt="${c.title}">
+            <span class="course-badge-overlay">${c.category}</span>
+            <span class="course-refund-tag">
+              <span class="material-symbols-outlined" style="font-size:14px;">verified</span> 100% Refund
+            </span>
+          </div>
+          <div class="course-card-body">
+            <div class="course-meta-row">
+              <span style="color: var(--color-amber); font-weight: 700;">★ ${c.rating.toFixed(2)}</span>
+              <span>${c.learners} learners</span>
+              <span>${c.durationHours} hrs</span>
+            </div>
+            <h4 class="course-card-title">${c.title}</h4>
+            <p class="course-card-sub">${c.subtitle}</p>
+            <div class="course-tags-cloud">
+              ${c.tools.slice(0, 4).map(t => `<span class="tech-tag">${t.name}</span>`).join('')}
+            </div>
+            <div class="course-card-footer">
+              <div class="price-box">
+                <span class="price-main">₹${c.price}</span>
+                <span class="price-cashback">100% Refundable</span>
+              </div>
+              <a href="course.html?id=${c.id}" class="btn btn-sm btn-primary">
+                View Course →
+              </a>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function filterCategory(cat, btn) {
+      document.querySelectorAll('#categoryChips .chip').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      const filtered = getCoursesByCategory(cat);
+      renderHomepageCourses(filtered);
+    }
+
+    function handleGlobalSearch(query) {
+      const q = query.toLowerCase();
+      const all = getAllCourses();
+      const filtered = all.filter(c => 
+        c.title.toLowerCase().includes(q) ||
+        c.category.toLowerCase().includes(q) ||
+        c.subtitle.toLowerCase().includes(q) ||
+        c.tools.some(t => t.name.toLowerCase().includes(q))
+      );
+      renderHomepageCourses(filtered);
+    }
+
+    function toggleFaq(header) {
+      const parent = header.closest('.accordion-module');
+      const icon = header.querySelector('.material-symbols-outlined');
+      const isExpanded = parent.classList.contains('expanded');
+      parent.classList.toggle('expanded');
+      if (icon) icon.textContent = isExpanded ? 'expand_more' : 'expand_less';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Learning Portal & Refund Center — Tutedude</title>
+  <meta name="description" content="Track your course lectures, submit assignments, access 1:1 mentorship and track your 100% refund qualification status.">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .dashboard-layout {
+      max-width: 1280px;
+      margin: 32px auto;
+      padding: 0 24px 80px;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 32px;
+      align-items: flex-start;
+    }
+    .dash-sidebar {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      position: sticky;
+      top: 100px;
+    }
+    .dash-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      border-radius: var(--radius-md);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      transition: all var(--transition-fast);
+      cursor: pointer;
+    }
+    .dash-nav-item:hover,
+    .dash-nav-item.active {
+      background: var(--color-primary-subtle);
+      color: var(--color-primary);
+    }
+    .challenge-spotlight-card {
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(5, 150, 105, 0.08));
+      border: 2px solid var(--color-emerald);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 32px;
+      box-shadow: var(--shadow-md);
+    }
+    .countdown-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin: 20px 0;
+    }
+    .timer-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      text-align: center;
+    }
+    .timer-val {
+      font-family: var(--font-heading);
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--color-emerald);
+      line-height: 1;
+    }
+    .timer-lbl {
+      font-size: 10px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 4px;
+      font-weight: 700;
+    }
+    .checklist-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      margin-bottom: 8px;
+    }
+    @media (max-width: 1024px) {
+      .dashboard-layout {
+        grid-template-columns: 1fr;
+      }
+      .dash-sidebar {
+        position: static;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================================
+       TOP DEMO TOOLBAR (Hackathon Evaluator Switcher)
+       ======================================================================== -->
+  <aside class="demo-switcher-bar" aria-label="Demo Navigation">
+    <div class="brand-tag">
+      <span class="pulse-dot"></span>
+      <span>TUTEDUDE HACKATHON PROTOTYPE</span>
+      <span style="opacity: 0.6; font-weight: 400; margin-left: 6px;">| Student LMS & Refund Center</span>
+    </div>
+    <div class="demo-nav-links">
+      <a href="index.html" class="demo-nav-btn">
+        <span class="material-symbols-outlined" style="font-size:16px;">home</span> Homepage
+      </a>
+      <a href="course.html" class="demo-nav-btn">
+        <span class="material-symbols-outlined" style="font-size:16px;">auto_stories</span> Course Template
+      </a>
+      <a href="dashboard.html" class="demo-nav-btn active">
+        <span class="material-symbols-outlined" style="font-size:16px;">dashboard</span> Student LMS
+      </a>
+      <a href="admin.html" class="demo-nav-btn">
+        <span class="material-symbols-outlined" style="font-size:16px;">admin_panel_settings</span> Admin CMS
+      </a>
+      <a href="pack-builder.html" class="demo-nav-btn">
+        <span class="material-symbols-outlined" style="font-size:16px;">tune</span> Pick 4 Builder
+      </a>
+      <button class="theme-toggle-btn" aria-label="Toggle Theme">
+        <span class="material-symbols-outlined theme-toggle-icon" style="font-size:16px;">dark_mode</span>
+        <span class="theme-toggle-text">Dark</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ========================================================================
+       MAIN HEADER
+       ======================================================================== -->
+  <header class="main-header">
+    <div class="nav-container">
+      <a href="index.html" class="logo-wrapper">
+        <img src="assets/td-badge.png" alt="Tutedude Logo" class="logo-img">
+        <span>tutedude <span style="font-size: 13px; color: var(--color-emerald); font-weight: 600; margin-left: 4px;">STUDENT LMS</span></span>
+      </a>
+
+      <div class="nav-actions">
+        <div style="display: flex; align-items: center; gap: 10px; background: var(--bg-surface-subtle); padding: 4px 12px; border-radius: var(--radius-full); border: 1px solid var(--border-subtle);">
+          <img src="assets/student-rahul.png" alt="Profile" style="width: 28px; height: 28px; border-radius: 50%; object-fit: cover;">
+          <span style="font-size: 13px; font-weight: 600;">Rahul Sharma</span>
+          <span class="section-tag green" style="margin: 0; padding: 2px 6px; font-size: 10px;">100% Challenge</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       DASHBOARD BODY
+       ======================================================================== -->
+  <div class="dashboard-layout">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="dash-sidebar">
+      <div style="text-align: center; padding-bottom: 20px; border-bottom: 1px solid var(--border-subtle); margin-bottom: 20px;">
+        <img src="assets/student-rahul.png" alt="Rahul" style="width: 72px; height: 72px; border-radius: 50%; object-fit: cover; margin: 0 auto 12px; border: 3px solid var(--border-accent);">
+        <h4 style="font-size: 18px;">Rahul Sharma</h4>
+        <span style="font-size: 12px; color: var(--text-muted);">B.Tech Computer Science (Final Year)</span>
+        <div style="margin-top: 8px;">
+          <span class="section-tag green" style="font-size: 11px;">Cohort: March 2026</span>
+        </div>
+      </div>
+
+      <nav style="display: flex; flex-direction: column; gap: 4px;">
+        <div class="dash-nav-item active">
+          <span class="material-symbols-outlined">verified</span>
+          <span>100% Refund Challenge</span>
+        </div>
+        <div class="dash-nav-item">
+          <span class="material-symbols-outlined">play_lesson</span>
+          <span>My Course Syllabus</span>
+        </div>
+        <div class="dash-nav-item">
+          <span class="material-symbols-outlined">assignment</span>
+          <span>Assignment Submissions</span>
+        </div>
+        <div class="dash-nav-item">
+          <span class="material-symbols-outlined">screen_share</span>
+          <span>1:1 Doubt Desk (Live)</span>
+        </div>
+        <div class="dash-nav-item">
+          <span class="material-symbols-outlined">workspace_premium</span>
+          <span>Verified Certificate</span>
+        </div>
+        <div class="dash-nav-item">
+          <span class="material-symbols-outlined">receipt_long</span>
+          <span>Refund Payout Ledger</span>
+        </div>
+      </nav>
+
+      <div style="margin-top: 32px; padding: 14px; background: var(--bg-surface-subtle); border-radius: var(--radius-md); font-size: 12px; color: var(--text-muted);">
+        <strong style="color: var(--text-primary); display: block; margin-bottom: 4px;">Need Mentor Help?</strong>
+        <span>14 IIT Alumni Mentors are currently online to take live screen-share doubts.</span>
+        <button class="btn btn-sm btn-primary" style="width: 100%; margin-top: 10px;" onclick="showToast('Connecting to mentor desk... Queue position: #1 (~2 mins)')">
+          Request Session
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main>
+      
+      <!-- 100% Refund Challenge Command Center Spotlight -->
+      <div class="challenge-spotlight-card">
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+          <div>
+            <span class="section-tag green" style="background: var(--color-emerald); color: #ffffff;">
+              <span class="material-symbols-outlined" style="font-size: 14px;">lock_clock</span> ACTIVE REFUND CHALLENGE
+            </span>
+            <h2 style="font-size: 28px; margin-top: 8px;">100% Course Fee Cashback Tracker</h2>
+            <p style="font-size: 15px; color: var(--text-secondary);">
+              Enrolled in: <strong>Full Stack MERN Development (₹699 Commitment Fee Paid)</strong>
+            </p>
+          </div>
+          <div id="refundStatusPill">
+            <span class="section-tag green" style="padding: 6px 14px; font-size: 13px; font-weight: 700;">
+              ✓ 85% CRITERIA MET — ELIGIBLE TO CLAIM
+            </span>
+          </div>
+        </div>
+
+        <!-- Real-Time Countdown Grid -->
+        <div class="countdown-grid">
+          <div class="timer-box">
+            <div class="timer-val" id="daysVal">48</div>
+            <div class="timer-lbl">Days Left</div>
+          </div>
+          <div class="timer-box">
+            <div class="timer-val" id="hoursVal">14</div>
+            <div class="timer-lbl">Hours</div>
+          </div>
+          <div class="timer-box">
+            <div class="timer-val" id="minsVal">22</div>
+            <div class="timer-lbl">Minutes</div>
+          </div>
+          <div class="timer-box">
+            <div class="timer-val" id="secsVal">10</div>
+            <div class="timer-lbl">Seconds</div>
+          </div>
+        </div>
+
+        <!-- Milestone Checklist -->
+        <h4 style="font-size: 16px; margin: 20px 0 12px;">Challenge Milestones:</h4>
+        
+        <div class="checklist-row">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span class="material-symbols-outlined" style="color: var(--color-emerald);">check_circle</span>
+            <span style="font-size: 14px; font-weight: 600;">Recorded Lessons Watched (31 / 36 Completed)</span>
+          </div>
+          <span style="font-size: 13px; font-weight: 700; color: var(--color-emerald);">86% Passed</span>
+        </div>
+
+        <div class="checklist-row">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span class="material-symbols-outlined" style="color: var(--color-emerald);">check_circle</span>
+            <span style="font-size: 14px; font-weight: 600;">Assignments Evaluated ≥ 80% (8 / 10 Submitted)</span>
+          </div>
+          <span style="font-size: 13px; font-weight: 700; color: var(--color-emerald);">88% Average</span>
+        </div>
+
+        <div class="checklist-row">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span class="material-symbols-outlined" style="color: var(--color-emerald);">check_circle</span>
+            <span style="font-size: 14px; font-weight: 600;">Capstone 1: E-Commerce Storefront Deployed</span>
+          </div>
+          <span style="font-size: 13px; font-weight: 700; color: var(--color-emerald);">Live Verified</span>
+        </div>
+
+        <div class="checklist-row">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span class="material-symbols-outlined" style="color: var(--color-primary);">pending</span>
+            <span style="font-size: 14px; font-weight: 600;">Capstone 2: EdFlow SaaS Platform Final Review</span>
+          </div>
+          <span style="font-size: 13px; font-weight: 700; color: var(--color-primary);">Submitted Today</span>
+        </div>
+
+        <!-- Interactive Claim Refund Button -->
+        <div style="margin-top: 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; border-top: 1px solid rgba(5, 150, 105, 0.2); padding-top: 20px;">
+          <div>
+            <div style="font-family: var(--font-heading); font-size: 22px; font-weight: 800; color: var(--text-primary);">
+              Eligible Refund: <span style="color: var(--color-emerald);">₹699.00</span>
+            </div>
+            <div style="font-size: 12px; color: var(--text-secondary);">Direct Bank NEFT / Instant UPI Payout</div>
+          </div>
+
+          <button class="btn btn-emerald btn-lg" id="claimRefundBtn" onclick="openModal('claimRefundModal')">
+            <span class="material-symbols-outlined">account_balance_wallet</span>
+            <span>Claim 100% Fee Refund (₹699)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Current Ongoing Module & Lesson Player Simulation -->
+      <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-xl); padding: 32px; box-shadow: var(--shadow-sm); margin-bottom: 32px;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+          <div>
+            <span class="section-tag blue">Resume Learning</span>
+            <h3 style="font-size: 22px; margin-top: 6px;">Next Up: Module 6 — Real-Time WebSockets Architecture</h3>
+            <p style="font-size: 13px; color: var(--text-secondary);">Lesson 32: Rooms, Namespaces & Presence Tracking in Socket.io</p>
+          </div>
+          <button class="btn btn-sm btn-primary" onclick="openVideoPreview('Lesson 32: Rooms, Namespaces & Presence Tracking', 32)">
+            <span class="material-symbols-outlined">play_arrow</span>
+            <span>Resume (48 min)</span>
+          </button>
+        </div>
+
+        <div class="video-sim-player" style="height: 320px; border-radius: var(--radius-lg); cursor: pointer;" onclick="openVideoPreview('Lesson 32: Rooms, Namespaces & Presence Tracking', 32)">
+          <div style="text-align: center;">
+            <div style="width: 64px; height: 64px; border-radius: 50%; background: var(--color-primary-container); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
+              <span class="material-symbols-outlined" style="font-size: 36px; color: #ffffff;">play_arrow</span>
+            </div>
+            <h4 style="font-size: 18px; color: #ffffff;">Continue Lesson 32</h4>
+            <span style="font-size: 13px; color: #94a3b8;">Click to launch HD video player & code editor</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certificate Locker Section -->
+      <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-xl); padding: 32px; box-shadow: var(--shadow-sm);">
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <div style="width: 52px; height: 52px; border-radius: var(--radius-md); background: var(--color-emerald-subtle); color: var(--color-emerald); display: flex; align-items: center; justify-content: center;">
+              <span class="material-symbols-outlined" style="font-size: 28px;">workspace_premium</span>
+            </div>
+            <div>
+              <h4 style="font-size: 18px;">Your Verified Graduation Certificate</h4>
+              <span style="font-size: 13px; color: var(--text-muted);">ISO 9001:2015 Accredited • ID: TD-CERT-MERN-89210</span>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 10px;">
+            <button class="btn btn-sm btn-secondary" onclick="showToast('Verifiable Link copied to clipboard!')">
+              <span class="material-symbols-outlined">share</span> Share Link
+            </button>
+            <button class="btn btn-sm btn-primary" onclick="showToast('Downloading high-res PDF certificate...')">
+              <span class="material-symbols-outlined">download</span> Download PDF
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- ========================================================================
+       MODAL: CLAIM 100% REFUND DISBURSEMENT SIMULATOR
+       ======================================================================== -->
+  <div class="modal-overlay" id="claimRefundModal">
+    <div class="modal-box" style="max-width: 540px;">
+      <div class="modal-header">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span class="material-symbols-outlined" style="color: var(--color-emerald); font-size: 26px;">payments</span>
+          <h4 style="font-size: 18px;">100% Course Fee Payout Desk</h4>
+        </div>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      
+      <div class="modal-body" id="claimModalContent">
+        <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 20px;">
+          Congratulations on maintaining discipline and satisfying your course completion criteria! Enter your payment details to receive your <strong>100% fee refund of ₹699</strong>.
+        </p>
+
+        <div style="margin-bottom: 16px;">
+          <label style="display: block; font-size: 13px; font-weight: 700; margin-bottom: 6px;">Select Payout Method:</label>
+          <div style="display: flex; gap: 10px;">
+            <button class="btn btn-sm btn-primary" id="btnUpi" onclick="togglePayoutMethod('upi')">UPI ID (Instant)</button>
+            <button class="btn btn-sm btn-secondary" id="btnBank" onclick="togglePayoutMethod('bank')">Bank Account (NEFT)</button>
+          </div>
+        </div>
+
+        <div id="upiFormGroup" style="margin-bottom: 20px;">
+          <label style="display: block; font-size: 13px; font-weight: 700; margin-bottom: 6px;">Enter your UPI ID / VPA:</label>
+          <input type="text" id="upiInput" value="rahul.sharma@okhdfcbank" style="width: 100%; padding: 10px 14px; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); font-size: 14px; background: var(--bg-surface); color: var(--text-primary);">
+          <span style="font-size: 11px; color: var(--text-muted); margin-top: 4px; display: block;">Supports Google Pay, PhonePe, Paytm, or BHIM.</span>
+        </div>
+
+        <div id="bankFormGroup" style="margin-bottom: 20px; display: none;">
+          <label style="display: block; font-size: 13px; font-weight: 700; margin-bottom: 6px;">Account Number & IFSC:</label>
+          <input type="text" placeholder="Account Number" style="width: 100%; padding: 10px 14px; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); font-size: 14px; margin-bottom: 8px; background: var(--bg-surface); color: var(--text-primary);">
+          <input type="text" placeholder="IFSC Code (e.g. HDFC0001234)" style="width: 100%; padding: 10px 14px; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); font-size: 14px; background: var(--bg-surface); color: var(--text-primary);">
+        </div>
+
+        <div style="padding: 14px; background: var(--color-emerald-subtle); border-radius: var(--radius-md); margin-bottom: 20px; font-size: 13px; color: var(--color-emerald-deep);">
+          ✓ <strong>Lifetime Access Retained:</strong> Receiving your ₹699 refund will NOT revoke your course or certificate access.
+        </div>
+
+        <button class="btn btn-emerald btn-lg" style="width: 100%;" onclick="executeSimulatedRefund()">
+          <span class="material-symbols-outlined">send</span>
+          <span>Confirm & Transfer ₹699.00</span>
+        </button>
+      </div>
+
+      <!-- Success State in Modal -->
+      <div class="modal-body" id="claimSuccessContent" style="display: none; text-align: center; padding: 40px 24px;">
+        <div style="width: 72px; height: 72px; border-radius: 50%; background: var(--color-emerald-subtle); color: var(--color-emerald); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
+          <span class="material-symbols-outlined" style="font-size: 40px;">check_circle</span>
+        </div>
+        <h3 style="font-size: 24px; color: var(--color-emerald-deep); margin-bottom: 8px;">₹699 Payout Disbursed!</h3>
+        <p style="font-size: 14px; color: var(--text-secondary); max-width: 420px; margin: 0 auto 20px;">
+          Your 100% course fee cashback of <strong>₹699</strong> has been credited to your UPI ID (<span id="confirmedUpiText">rahul.sharma@okhdfcbank</span>).
+        </p>
+        <div style="background: var(--bg-surface-subtle); padding: 12px; border-radius: var(--radius-md); font-size: 12px; color: var(--text-muted); margin-bottom: 24px;">
+          Transaction Reference: <strong>UTR-TD2026-981240918</strong> • Verified on UPI NPCI Gateway
+        </div>
+        <button class="btn btn-primary" onclick="closeAllModals()">
+          Done & Return to LMS
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Video Preview Modal Placeholder -->
+  <div class="modal-overlay" id="videoPreviewModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div>
+          <h4 class="video-modal-title" style="font-size: 17px;">Lesson Player</h4>
+          <span class="video-modal-sub" style="font-size: 12px; color: var(--text-secondary);">Tutedude HD Player</span>
+        </div>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="video-sim-player">
+          <div style="text-align: center; padding: 20px;">
+            <div style="width: 60px; height: 60px; border-radius: 50%; background: var(--color-primary-container); color: #ffffff; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
+              <span class="material-symbols-outlined" style="font-size: 32px;">play_arrow</span>
+            </div>
+            <h4 style="color: #ffffff; font-size: 18px; margin-bottom: 6px;">Streaming HD 1080p Lecture</h4>
+            <p style="font-size: 13px; color: #94a3b8;">Interactive Sandbox • Code Along • 1:1 Live Notes</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/courses-data.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    // Live Countdown Timer simulation
+    let secondsLeft = 10;
+    setInterval(() => {
+      secondsLeft--;
+      if (secondsLeft < 0) secondsLeft = 59;
+      const el = document.getElementById('secsVal');
+      if (el) el.textContent = secondsLeft < 10 ? '0' + secondsLeft : secondsLeft;
+    }, 1000);
+
+    function togglePayoutMethod(method) {
+      const upiGroup = document.getElementById('upiFormGroup');
+      const bankGroup = document.getElementById('bankFormGroup');
+      const btnUpi = document.getElementById('btnUpi');
+      const btnBank = document.getElementById('btnBank');
+
+      if (method === 'upi') {
+        upiGroup.style.display = 'block';
+        bankGroup.style.display = 'none';
+        btnUpi.className = 'btn btn-sm btn-primary';
+        btnBank.className = 'btn btn-sm btn-secondary';
+      } else {
+        upiGroup.style.display = 'none';
+        bankGroup.style.display = 'block';
+        btnUpi.className = 'btn btn-sm btn-secondary';
+        btnBank.className = 'btn btn-sm btn-primary';
+      }
+    }
+
+    function executeSimulatedRefund() {
+      const upiVal = document.getElementById('upiInput').value || 'rahul.sharma@okhdfcbank';
+      document.getElementById('confirmedUpiText').textContent = upiVal;
+      
+      document.getElementById('claimModalContent').style.display = 'none';
+      document.getElementById('claimSuccessContent').style.display = 'block';
+
+      // Update Dashboard UI to show refunded state
+      const statusPill = document.getElementById('refundStatusPill');
+      if (statusPill) {
+        statusPill.innerHTML = `
+          <span class="section-tag green" style="background: var(--color-emerald); color: #ffffff; padding: 6px 14px; font-size: 13px; font-weight: 700;">
+            ✓ 100% FEE REFUNDED (₹699) VIA UPI
+          </span>
+        `;
+      }
+      const claimBtn = document.getElementById('claimRefundBtn');
+      if (claimBtn) {
+        claimBtn.disabled = true;
+        claimBtn.innerHTML = `<span class="material-symbols-outlined">verified</span><span>₹699 Transferred</span>`;
+        claimBtn.style.opacity = '0.7';
+      }
+
+      showToast('100% Course Fee Refund of ₹699 successfully credited to your UPI!', 'success');
+    }
+  </script>
+</body>
+</html>
