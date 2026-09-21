@@ -307,9 +307,20 @@
   <script src="js/courses-data.js"></script>
   <script src="js/app.js"></script>
   <script>
+    let isAllAccessMode = false;
     const selectedCourseIds = new Set(["mern", "aiml"]); // Pre-select 2 for instant demonstration
 
     document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('mode') === 'all') {
+        isAllAccessMode = true;
+        selectedCourseIds.clear();
+        getAllCourses().forEach(c => selectedCourseIds.add(c.id));
+        const heroTitle = document.querySelector('.section-title');
+        if (heroTitle) {
+          heroTitle.innerHTML = 'All-Access Pass <span style="color: var(--color-primary-container);">(77 Courses Unlocked)</span>';
+        }
+      }
       renderPackGrid();
       updateTray();
     });
@@ -345,7 +356,7 @@
       if (selectedCourseIds.has(courseId)) {
         selectedCourseIds.delete(courseId);
       } else {
-        if (selectedCourseIds.size >= 4) {
+        if (!isAllAccessMode && selectedCourseIds.size >= 4) {
           showToast('You can select a maximum of 4 courses for this bundle pack!', 'error');
           return;
         }
@@ -357,27 +368,44 @@
 
     function updateTray() {
       const count = selectedCourseIds.size;
-      document.getElementById('headerSelectionCount').textContent = `${count} of 4 Courses Selected`;
-      document.getElementById('trayCountText').textContent = `Selected Courses (${count} / 4)`;
+      const totalCourses = getAllCourses().length;
+
+      if (isAllAccessMode) {
+        document.getElementById('headerSelectionCount').textContent = `All ${count} Courses Selected (All-Access Pass)`;
+        document.getElementById('trayCountText').textContent = `All-Access Pass (${count} / ${count} Courses)`;
+        document.getElementById('trayPriceText').textContent = '₹4,999';
+        document.getElementById('trayOldPriceText').textContent = '₹18,999';
+      } else {
+        document.getElementById('headerSelectionCount').textContent = `${count} of 4 Courses Selected`;
+        document.getElementById('trayCountText').textContent = `Selected Courses (${count} / 4)`;
+        document.getElementById('trayPriceText').textContent = '₹1,999';
+        document.getElementById('trayOldPriceText').textContent = '₹2,796';
+      }
 
       const chipsList = document.getElementById('selectedChipsList');
       chipsList.innerHTML = '';
 
       if (count === 0) {
-        chipsList.innerHTML = `<span style="font-size: 13px; color: var(--text-muted);">Please select 4 courses from above to unlock bundle discount.</span>`;
+        chipsList.innerHTML = `<span style="font-size: 13px; color: var(--text-muted);">Please select courses to unlock bundle discount.</span>`;
       } else {
         selectedCourseIds.forEach(id => {
           const c = getCourseById(id);
-          const chip = document.createElement('span');
-          chip.className = 'chip active';
-          chip.style.cssText = "padding: 3px 10px; font-size: 11px; display: inline-flex; align-items: center; gap: 4px;";
-          chip.innerHTML = `${c.title} <span class="material-symbols-outlined" style="font-size: 14px; cursor: pointer;" onclick="event.stopPropagation(); toggleCourseSelection('${c.id}')">close</span>`;
-          chipsList.appendChild(chip);
+          if (c) {
+            const chip = document.createElement('span');
+            chip.className = 'chip active';
+            chip.style.cssText = "padding: 3px 10px; font-size: 11px; display: inline-flex; align-items: center; gap: 4px;";
+            chip.innerHTML = `${c.title} <span class="material-symbols-outlined" style="font-size: 14px; cursor: pointer;" onclick="event.stopPropagation(); toggleCourseSelection('${c.id}')">close</span>`;
+            chipsList.appendChild(chip);
+          }
         });
       }
 
       const btn = document.getElementById('btnEnrollPack');
-      if (count === 4) {
+      if (isAllAccessMode) {
+        btn.disabled = false;
+        btn.style.opacity = '1';
+        btn.innerHTML = `<span>Checkout All-Access Pass for ₹4,999</span> <span class="material-symbols-outlined">arrow_forward</span>`;
+      } else if (count === 4) {
         btn.disabled = false;
         btn.style.opacity = '1';
         btn.innerHTML = `<span>Lock In 4 Courses for ₹1,999</span> <span class="material-symbols-outlined">arrow_forward</span>`;
@@ -389,9 +417,10 @@
     }
 
     function checkoutPack() {
-      showToast('Enrolling in Customized 4-Course Pack for ₹1,999! Redirecting...', 'success');
+      const label = isAllAccessMode ? 'All-Access Pass (77 Courses) for ₹4,999' : 'Customized 4-Course Pack for ₹1,999';
+      showToast(`Enrolling in ${label}! Redirecting to student portal...`, 'success');
       setTimeout(() => {
-        window.location.href = 'dashboard.html?pack=custom4';
+        window.location.href = isAllAccessMode ? 'dashboard.html?pack=all77' : 'dashboard.html?pack=custom4';
       }, 1200);
     }
   </script>
