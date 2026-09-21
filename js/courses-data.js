@@ -932,7 +932,7 @@ const COURSES_DATA = [
     subtitle: "Crack MAANG & Tier-1 product tech interviews with 350+ curated LeetCode problems.",
     description: "The definitive algorithmic problem-solving blueprint. Master arrays, strings, two pointers, sliding window, linked lists, trees, graphs, dynamic programming, and system design intuition with time & space complexity mastery.",
     badge: "Interview Guarantee",
-    image: "https://images.unsplash.com/photo-1516116211227-bbc00e5720ad?w=600&auto=format&fit=crop&q=80",
+    image: "https://images.pexels.com/photos/39492347/pexels-photo-39492347.png?_gl=1*1lwexcv*_ga*MTYxMDA3MTQ5MS4xNzc0NzMyMDgx*_ga_8JE65Q40S6*czE3OTAwMDg5MTIkbzUkZzEkdDE3OTAwMDkwMzAkajEwJGwwJGgw?w=600&auto=format&fit=crop&q=80",
     price: 699,
     originalPrice: 3499,
     discountPercent: 80,
